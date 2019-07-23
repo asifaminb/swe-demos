@@ -166,32 +166,28 @@
 	(function (qg, $) {
 	  'use strict';
 	  var googleApiKey = void 0;
+	  var firstFolderPath = location.pathname.split('/')[1];
 	  var $mapImg = $('.qg-static-map');
-	  window.qg.googleKey = window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b|\buat\b/) !== -1 ? _qgGoogleKeys2.default.defGoogle.uat : _qgGoogleKeys2.default.defGoogle.prod;
-	  window.qg.googleRecaptchaApiKey = window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b|\buat\b/) !== -1 ? _qgGoogleKeys2.default.defGoogleRecaptcha.uat : _qgGoogleKeys2.default.defGoogleRecaptcha.prod;
 	
-	  var findFranchiseName = function findFranchiseName() {
-	    var path = window.location.pathname.replace(/\/$/, '');
-	    var pathArr = path.split('/').filter(function (e) {
-	      return e;
-	    });
-	    if (pathArr[0]) {
-	      return pathArr[0].toLowerCase();
-	    }
-	  };
-	  var franchise = findFranchiseName();
-	  if (franchise) {
+	  // check if the hostname contains a specific word and assign the key accordingly
+	  if (window.location.hostname.search(/\bgithub\b/) !== -1) {
+	    console.log('docs key in use');
+	    googleApiKey = _qgGoogleKeys2.default.defGoogle.docs;
+	  } else if (window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b/) !== -1) {
+	    console.log('test key in use');
+	    googleApiKey = _qgGoogleKeys2.default.defGoogle.test;
+	  } else {
+	    googleApiKey = _qgGoogleKeys2.default.defGoogle.prod;
+	  }
+	
+	  // check if first folder path exist and match to see if this is a valid franchise name or not
+	  if (firstFolderPath) {
 	    _qgGoogleKeys2.default.franchises.forEach(function (e) {
-	      if (franchise === e.name) {
-	        window.qg.franchise = {
-	          name: e.name,
-	          apiKey: e.apiKey };
-	
+	      if (firstFolderPath === e.name) {
+	        googleApiKey = e.apiKey;
 	      }
 	    });
 	  }
-	  googleApiKey = window.qg.franchise && window.qg.franchise.apiKey ? window.qg.franchise.apiKey : window.qg.googleKey;
-	
 	  function generateStaticMapImg(ele) {
 	    var lat = ele.attr('data-lat') || -27.4673;
 	    var lon = ele.attr('data-long') || 153.0233;
@@ -258,7 +254,7 @@
 /* 6 */
 /***/ (function(module, exports) {
 
-	module.exports = {"defGoogle":{"uat":"AIzaSyCKuaFIFo7YYZXHZ5zaiEZdJx0UBoyfuAE","prod":"AIzaSyANZv-2WcXRzkBqtgEcLTZq7zVy-9eNWgw"},"defGoogleRecaptcha":{"uat":"6LeNGSwUAAAAAD6o-P5UTM0FNpKjYB71Kh70F-Ud","prod":"6LcoIywUAAAAAN-1rq22G-bP3yxl1bBq_5nHJ6s9"},"franchises":[{"name":"about","apiKey":"AIzaSyBi-T3vrvcYwouFPqPI5IgLoQxl2hz6Ogs"},{"name":"atsi","apiKey":"AIzaSyB2mTTDd1CcLEYrLHJJHlzX60vQ68snyko"},{"name":"community","apiKey":"AIzaSyCJwNeGu0XT1lvhg-2cm7S27BQo9k7Jd9E"},{"name":"disability","apiKey":"AIzaSyC-KQFfBhoGle7kJJhY1Pf_GvR_qC5jzN4"},{"name":"education","apiKey":"AIzaSyDeeYKKOyQCYkpVWXRLLxyNjfy2dhyWVls"},{"name":"emergency","apiKey":"AIzaSyD1xT_2Dh2EZ7Iy6SLodeH8CJzbXlp6vgE"},{"name":"environment","apiKey":"AIzaSyAZJjfwIKDPlQs-S3id-CGp8U_S4U7idFI"},{"name":"families","apiKey":"AIzaSyBucRn0YhJhQ-ELSS-MM7JvYb19-I1bqqI"},{"name":"health","apiKey":"AIzaSyD_Xzvr6nBm5PlpANw2UZ2df3-U5eeOlvY"},{"name":"housing","apiKey":"AIzaSyCgMKJlbP1SRIf3xCMFDbBImNkF_BCubvk"},{"name":"jobs","apiKey":"AIzaSyBXmI1DZvPFVQ_h-E1TNsPNdlNuqDd7MVo"},{"name":"law","apiKey":"AIzaSyBeij584IMIZqpftyhMCt_lZ_hBK_h8hMc"},{"name":"recreation","apiKey":"AIzaSyDJmfdqYI3eyV8-ivwPWVIIHxBzqo5_v2I"},{"name":"seniors","apiKey":"AIzaSyA3PDnd30Twv3Zr3JKqiAUYNO1983ZDBe0"},{"name":"transport","apiKey":"AIzaSyARzyCPigCt9cW1F6ua0_U3NVLdRbxwLyg"},{"name":"youth","apiKey":"AIzaSyCe7FYHy28So2Uio_OEQje0o0Pr23s7gt0"}]}
+	module.exports = {"defGoogle":{"test":"AIzaSyCKuaFIFo7YYZXHZ5zaiEZdJx0UBoyfuAE","docs":"AIzaSyBE95_qL90MT9loY1roLnHJ3uaBYbleYeM","prod":"AIzaSyANZv-2WcXRzkBqtgEcLTZq7zVy-9eNWgw"},"defGoogleRecaptcha":{"uat":"6LeNGSwUAAAAAD6o-P5UTM0FNpKjYB71Kh70F-Ud","prod":"6LcoIywUAAAAAN-1rq22G-bP3yxl1bBq_5nHJ6s9"},"franchises":[{"name":"about","apiKey":"AIzaSyBi-T3vrvcYwouFPqPI5IgLoQxl2hz6Ogs"},{"name":"atsi","apiKey":"AIzaSyB2mTTDd1CcLEYrLHJJHlzX60vQ68snyko"},{"name":"community","apiKey":"AIzaSyCJwNeGu0XT1lvhg-2cm7S27BQo9k7Jd9E"},{"name":"disability","apiKey":"AIzaSyC-KQFfBhoGle7kJJhY1Pf_GvR_qC5jzN4"},{"name":"education","apiKey":"AIzaSyDeeYKKOyQCYkpVWXRLLxyNjfy2dhyWVls"},{"name":"emergency","apiKey":"AIzaSyD1xT_2Dh2EZ7Iy6SLodeH8CJzbXlp6vgE"},{"name":"environment","apiKey":"AIzaSyAZJjfwIKDPlQs-S3id-CGp8U_S4U7idFI"},{"name":"families","apiKey":"AIzaSyBucRn0YhJhQ-ELSS-MM7JvYb19-I1bqqI"},{"name":"health","apiKey":"AIzaSyD_Xzvr6nBm5PlpANw2UZ2df3-U5eeOlvY"},{"name":"housing","apiKey":"AIzaSyCgMKJlbP1SRIf3xCMFDbBImNkF_BCubvk"},{"name":"jobs","apiKey":"AIzaSyBXmI1DZvPFVQ_h-E1TNsPNdlNuqDd7MVo"},{"name":"law","apiKey":"AIzaSyBeij584IMIZqpftyhMCt_lZ_hBK_h8hMc"},{"name":"recreation","apiKey":"AIzaSyDJmfdqYI3eyV8-ivwPWVIIHxBzqo5_v2I"},{"name":"seniors","apiKey":"AIzaSyA3PDnd30Twv3Zr3JKqiAUYNO1983ZDBe0"},{"name":"transport","apiKey":"AIzaSyARzyCPigCt9cW1F6ua0_U3NVLdRbxwLyg"},{"name":"youth","apiKey":"AIzaSyCe7FYHy28So2Uio_OEQje0o0Pr23s7gt0"}]}
 
 /***/ }),
 /* 7 */
@@ -2550,17 +2546,20 @@
 
 /***/ }),
 /* 17 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-	'use strict'; /*
-	              * Any form with form attribute data-recaptcha="true", will run and validate with Google invisible recaptcha
-	              * The site key, will be replaced
-	              *   - Local - by test key in build process (gulp/gulp-config.js, gulp/common-tasks/js.js)
-	              *   - Dev, Test, Staging, Beta - in bamboo deployment plan - https://servicesmadesimpler.govnet.qld.gov.au/bitbucket/projects/CDN/repos/static-qld_cloudformation/browse/deployment_swev3.yml
-	              * */
+	'use strict';
 	
-	/*globals grecaptcha, qg*/
+	
+	
+	
+	
+	
+	
+	var _qgGoogleKeys = __webpack_require__(6);var _qgGoogleKeys2 = _interopRequireDefault(_qgGoogleKeys);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	
 	(function ($, swe) {
+	  var googleRecaptchaApiKey = window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b/) !== -1 ? _qgGoogleKeys2.default.defGoogleRecaptcha.uat : _qgGoogleKeys2.default.defGoogleRecaptcha.prod;
 	  var onloadRecaptcha = function onloadRecaptcha() {// eslint-disable-line
 	    $('form[data-recaptcha="true"]').find('input[type="submit"], button[type="submit"]').on('click', function (e) {
 	      e.preventDefault();
@@ -2568,7 +2567,7 @@
 	      var form = $(subBtn).parents('form');
 	
 	      grecaptcha.render(subBtn, {
-	        'sitekey': window.qg.googleRecaptchaApiKey, //this value will be replaced by build tool. from gulp-config/
+	        'sitekey': googleRecaptchaApiKey,
 	        'callback': function callback() {
 	          var response = grecaptcha.getResponse();
 	          if (response === '' || response === undefined || response.length === 0) {
@@ -2586,7 +2585,12 @@
 	  if ($('form[data-recaptcha="true"]').length > 0) {//enable recaptcha on form submits
 	    swe.ajaxCall('https://www.google.com/recaptcha/api.js', 'script', onloadRecaptcha, 'Recaptcha unavailable');
 	  }
-	})(jQuery, qg.swe);
+	})(jQuery, qg.swe); /*
+	                    * Any form with form attribute data-recaptcha="true", will run and validate with Google invisible recaptcha
+	                    * The site key, will be replaced
+	                    *   - Local - by test key in build process (gulp/gulp-config.js, gulp/common-tasks/js.js)
+	                    *   - Dev, Test, Staging, Beta - in bamboo deployment plan - https://servicesmadesimpler.govnet.qld.gov.au/bitbucket/projects/CDN/repos/static-qld_cloudformation/browse/deployment_swev3.yml
+	                    * */ /*globals grecaptcha, qg*/
 
 /***/ }),
 /* 18 */
