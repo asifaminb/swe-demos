@@ -58,13 +58,13 @@
 	__webpack_require__(10);
 	
 	
-	__webpack_require__(21);
-	var _sectionNav = __webpack_require__(22);var _sectionNav2 = _interopRequireDefault(_sectionNav);
-	var _stepNav = __webpack_require__(23);var _stepNav2 = _interopRequireDefault(_stepNav);
-	var _shareLinks = __webpack_require__(25);var _shareLinks2 = _interopRequireDefault(_shareLinks);
-	__webpack_require__(26);
-	__webpack_require__(27);
-	var _feedbackForm = __webpack_require__(28);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // components import
+	__webpack_require__(23);
+	var _sectionNav = __webpack_require__(24);var _sectionNav2 = _interopRequireDefault(_sectionNav);
+	var _stepNav = __webpack_require__(25);var _stepNav2 = _interopRequireDefault(_stepNav);
+	var _shareLinks = __webpack_require__(27);var _shareLinks2 = _interopRequireDefault(_shareLinks);
+	__webpack_require__(28);
+	__webpack_require__(29);
+	var _feedbackForm = __webpack_require__(30);var _feedbackForm2 = _interopRequireDefault(_feedbackForm);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} // components import
 	// legacy module imports
 	// env initialization
 	(function () {'use strict';
@@ -538,6 +538,7 @@
 	
 	  // bind this AFTER the validation handler
 	  // only invoked if validation did not prevent submit
+	  // This will softlock submit if form submit passes this function with in SUBMIT_TOLERANCE timerange
 	  submitDoneHandler = function submitDoneHandler(event) {
 	    // use event.timeStamp when available and $.now() otherwise
 	    var timeStamp = event.timeStamp || $.now(),
@@ -643,18 +644,31 @@
 	        // turn off native validation
 	        .attr('novalidate', true)
 	        // unbind and rebind handlers
-	        .unbind('submit', submitDoneHandler).
-	        unbind('submit', submitValidationHandler)
+	        .off('submit', submitDoneHandler).
+	        off('submit', submitValidationHandler)
 	        // validate this form
-	        .bind('submit', submitValidationHandler)
+	        .on('submit', submitValidationHandler)
 	        // if validation did not cancel submit…
-	        .bind('submit', submitDoneHandler)
+	        .on('submit', submitDoneHandler)
 	        // bind inline validation handlers to form elements
 	        .find(candidateForValidation).
-	        unbind('change', changeValidityCheck).
-	        bind('change', changeValidityCheck);
+	        off('change', changeValidityCheck).
+	        on('change', changeValidityCheck);
 	
 	      });
+	    },
+	
+	    // jQuery("div.alert.alert-warning").remove(); //as this function only add's to it. submitDoneHandler did the removal on success.
+	    // $( x ).formValidation( 'validate', event )
+	    // validates the form it is attached too
+	    // return false if invalid
+	    // var fakeEvent = jQuery.Event( "click" );
+	    // $("form#myForm").formValidation("validateNow", fakeEvent);
+	    // The fakeEvent captures the .stopImmediatePropagation() .preventDefault()
+	    // and to allow you to check with:
+	    //isDefaultPrevented, isImmediatePropagationStopped
+	    validateNow: function validateNow(event) {
+	      return submitValidationHandler.call(this, event);
 	    },
 	
 	
@@ -951,8 +965,8 @@
 	
 	        // check validity on change
 	        candidates.
-	        unbind('change.constraintValidationAPI').
-	        bind('change.constraintValidationAPI', changeHandler);
+	        off('change.constraintValidationAPI').
+	        on('change.constraintValidationAPI', changeHandler);
 	
 	      }
 	
@@ -1035,8 +1049,8 @@
 	        // watch changes
 	        if (!polyfill) {
 	          candidates.filter(':radio').
-	          unbind('change.constraintValidationAPI').
-	          bind('change.constraintValidationAPI', function () {
+	          off('change.constraintValidationAPI').
+	          on('change.constraintValidationAPI', function () {
 	            validateBuggyRadioButtons(this.form);
 	          });
 	
@@ -1047,8 +1061,8 @@
 	      // this should be bound before all other submit handlers bound to the same form
 	      // otherwise they will execute before this handler can cancel submit (oninvalid)
 	      $('form').
-	      unbind('submit.constraintValidationAPI').
-	      bind('submit.constraintValidationAPI', submitHandler);
+	      off('submit.constraintValidationAPI').
+	      on('submit.constraintValidationAPI', submitHandler);
 	
 	    };
 	
@@ -1405,10 +1419,10 @@
 	          // setup event handlers for name
 	          formElementsByName(form[0], name).
 	          filter(':radio,:checkbox').
-	          bind('click', recalculateRelevance).
+	          on('click', recalculateRelevance).
 	          end().
 	          filter('select').
-	          bind('change', recalculateRelevance);
+	          on('change', recalculateRelevance);
 	
 	        }
 	        // add or update relevance rule
@@ -1482,7 +1496,7 @@
 	      } };
 	
 	    // fallback (default) event handling
-	    $(document).bind('relevant irrelevant', function (event) {
+	    $(document).on('relevant irrelevant', function (event) {
 	      var target = $(event.target);
 	      if (event.type === 'relevant') {
 	        target.relevance('show');
@@ -1650,11 +1664,11 @@
 	
 	  // show/hide entire 'question' when fields become irrelevant
 	  $('.questions > li').not('.section').
-	  bind('relevant', function (event) {
+	  on('relevant', function (event) {
 	    $(this).relevance('show');
 	    event.stopImmediatePropagation();
 	  }).
-	  bind('irrelevant', function (event) {
+	  on('irrelevant', function (event) {
 	    $(this).relevance('hide');
 	    event.stopImmediatePropagation();
 	  });
@@ -1914,184 +1928,185 @@
 	
 	// onready
 	$(function () {
-	    'use strict';
+	  'use strict';
 	
-	    // until find.search supports https, we cannot use suggest feature on https domains
-	    // if (/^https/.test(window.location.protocol)) {
-	    //     return;
-	    // }
+	  // until find.search supports https, we cannot use suggest feature on https domains
+	  // if (/^https/.test(window.location.protocol)) {
+	  //     return;
+	  // }
 	
-	    var MAX_SUGGESTIONS = 7;
+	  var MAX_SUGGESTIONS = 7;
 	
-	    // TODO refactor this so functions are not created for every search form found on the page
+	  // TODO refactor this so functions are not created for every search form found on the page
 	
-	    // setup for each form
-	    // TODO hardcoded to find.search.qld.gov.au
-	    $('form').filter('[action*="//find.search.qld.gov.au/"]').each(function () {
-	        var form = this;
-	        var searchField = $(form.elements.query).filter('[name="query"]');
-	        // var lastSearch = searchField.val();
-	        var userTyped = '';
+	  // setup for each form
+	  // TODO hardcoded to find.search.qld.gov.au
+	  $('form').each(function () {
+	    // .filter('[action*="qld.gov.au/search"]').filter('[action*="//find.search.qld.gov.au/"]')
 	
-	        // ARIA
-	        searchField.
-	        attr('role', 'combobox').
-	        attr('autocomplete', 'off')
-	        // both? or list? http://www.w3.org/TR/2011/CR-wai-aria-20110118/states_and_properties#aria-autocomplete
-	        .attr('aria-autocomplete', 'both');
+	    if (/\bqld.gov.au\/search\b/.test($(this).attr('action')) || /\bfind.search.qld.gov.au\/\b/.test($(this).attr('action'))) {var
 	
-	        // make the search box wider on focus
-	        // keep it wide while interacting with the search form (box, button, autosuggest list)
 	
-	        // create the suggestion box
-	        var suggestions = $('<ul role="listbox" class="listbox" aria-busy="true"/>').generateId('suggestbox');
 	
-	        function closeSuggestions() {
-	            suggestions.empty();
-	            suggestions.attr('aria-busy', 'true');
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	      closeSuggestions = function closeSuggestions() {
+	        suggestions.empty();
+	        suggestions.attr('aria-busy', 'true');
+	      };var
+	
+	      prefillInput = function prefillInput(value) {
+	        searchField[0].value = value;
+	        // console.log( 'prefilling', value, userTyped );
+	        // http://stackoverflow.com/questions/12047648/setselectionrange-with-on-click-in-chrome-does-not-select-on-second-click
+	        setTimeout(function () {
+	          searchField[0].setSelectionRange(userTyped.length, searchField[0].value.length);
+	        }, 0);
+	      };var
+	
+	      moveFocus = function moveFocus(n) {
+	        var a = suggestions.find('a');
+	        var focus = a.filter('.focus');
+	        if (focus.length > 0) {
+	          n = (a.index(focus) + n) % a.length;
+	          focus.removeClass('focus');
+	        } else {
+	          n = n > -1 ? 0 : -1;
+	        }
+	        a = a.eq(n);
+	        a.addClass('focus');
+	        prefillInput(a.text());
+	      };
+	
+	      // TODO how can we run this on both search forms (content and header) but show suggestions in the appropriate place?
+	      var form = this;var searchField = $(form.elements.query).filter('[name="query"]'); // var lastSearch = searchField.val();
+	      var userTyped = ''; // ARIA
+	      searchField.attr('role', 'combobox').attr('autocomplete', 'off') // both? or list? http://www.w3.org/TR/2011/CR-wai-aria-20110118/states_and_properties#aria-autocomplete
+	      .attr('aria-autocomplete', 'both'); // make the search box wider on focus
+	      // keep it wide while interacting with the search form (box, button, autosuggest list)
+	      // create the suggestion box
+	      var suggestions = $('<ul role="listbox" class="listbox" aria-busy="true"/>').generateId('suggestbox');suggestions.on('click', 'a', function (event) {// should this submit? no. see ARIA instructions
+	        event.preventDefault();searchField.val($(this).text()).get(0).focus();closeSuggestions();});
+	
+	      var KEYS = {
+	        alt: 18,
+	        backspace: 8,
+	        delete: 46,
+	        down: 40,
+	        enter: 13,
+	        escape: 27,
+	        left: 37,
+	        right: 39,
+	        tab: 9,
+	        up: 38 };
+	
+	
+	      // clicking outside the field closes suggestions
+	      $(document).on('click', function (event) {
+	        if (searchField.is(event.target)) {
+	          event.stopImmediatePropagation();
+	        } else {
+	          closeSuggestions();
+	        }
+	      });
+	
+	      // handle loss of focus due to TAB
+	      // need to run this onblur, but NOT when focus remains in the suggestions box
+	      // can we check focus in a parent element!? maybe a custom element
+	      // <combobox><input><ul></combobox> ??
+	      searchField.on('keydown', function (event) {
+	        switch (event.which) {
+	          case KEYS.up:
+	          case KEYS.down:
+	            moveFocus(event.which === KEYS.down ? 1 : -1);
+	            break;
+	          case KEYS.tab:
+	            closeSuggestions();}
+	
+	      });
+	      searchField.on('keyup', function (event) {
+	        switch (event.which) {
+	          case KEYS.escape:
+	          case KEYS.enter:
+	            closeSuggestions();}
+	
+	
+	        // delete
+	        // console.log( event.which );
+	      });
+	
+	      searchField.on('input', function () {
+	        searchField.after(suggestions);
+	        searchField.attr('aria-owns', suggestions.attr('id'));
+	
+	        userTyped = this.value;
+	        if (userTyped.length < 3) {
+	          closeSuggestions();
+	          return;
 	        }
 	
-	        function prefillInput(value) {
-	            searchField[0].value = value;
-	            // console.log( 'prefilling', value, userTyped );
-	            // http://stackoverflow.com/questions/12047648/setselectionrange-with-on-click-in-chrome-does-not-select-on-second-click
-	            setTimeout(function () {
-	                searchField[0].setSelectionRange(userTyped.length, searchField[0].value.length);
-	            }, 0);
-	        }
+	        // console.log( 'fetch suggestions for ', userTyped );
 	
-	        function moveFocus(n) {
-	            var a = suggestions.find('a');
-	            var focus = a.filter('.focus');
-	            if (focus.length > 0) {
-	                n = (a.index(focus) + n) % a.length;
-	                focus.removeClass('focus');
-	            } else {
-	                n = n > -1 ? 0 : -1;
-	            }
-	            a = a.eq(n);
-	            a.addClass('focus');
-	            prefillInput(a.text());
-	        }
+	        $.ajax({
+	          // cache! (the URL will be change with the search text)
+	          cache: true,
+	          dataType: 'jsonp',
+	          url: 'https://find.search.qld.gov.au/s/suggest.json?',
+	          data: {
+	            // TODO read these from search form
+	            collection: $(form.elements.collection).filter('[name="collection"]').val() || 'qld-gov',
+	            profile: $(form.elements.profile).filter('[name="profile"]').val() || 'qld_preview',
+	            show: MAX_SUGGESTIONS,
+	            partial_query: userTyped } }).
 	
-	        // TODO how can we run this on both search forms (content and header) but show suggestions in the appropriate place?
 	
-	        suggestions.on('click', 'a', function (event) {
-	            // should this submit? no. see ARIA instructions
-	            event.preventDefault();
-	
-	            searchField.val($(this).text()).get(0).focus();
+	        done(function (data) {
+	          if (data.length < 1) {
 	            closeSuggestions();
+	            return;
+	          }
+	          // TODO if the user has typed more, filter the matches in this array
+	          // should we retreive more than 4 so there is a bit of slack here?
+	          // what if ajax repsonses arrive out of sequence? track last match?
+	          // console.log( 'suggestions for ', userTyped, data, 'user has typed', searchField.val() );
+	          var match = new RegExp(userTyped.replace(/([.+*?\[^\]$(){}=!<>|:-\\,])/g, '\\$1'), 'g');
+	          var safeInput = userTyped.replace(/</g, '&lt;');
+	          suggestions.html($.map(data, function (value) {
+	            var htmlValue = value.replace(/</g, '&lt;').replace(match, '<mark>' + safeInput + '</mark>');
+	            // use form.action + default params
+	            return '<li><a href="https://find.search.qld.gov.au/s/search.html?collection=qld-gov&profile=qld&query=' + encodeURIComponent(value) + '">' + htmlValue + '</a></li>';
+	          }).join('\n'));
+	
+	          // issue #3: issues with typing over selected suggestion
+	          // https://github.com/qld-gov-au/jquery.autocomplete/issues/3
+	          // check length is increasing (if not, user is deleting input)
+	          // if ( searchField[0].value.length > lastSearch.length ) {
+	          // 	// set the value to the best answer and select the untyped portion of the text
+	          // 	prefillInput( data[0] );
+	          // }
+	          searchField.val();
+	          suggestions.attr('aria-busy', 'false');
 	        });
 	
-	
-	        var KEYS = {
-	            alt: 18,
-	            backspace: 8,
-	            delete: 46,
-	            down: 40,
-	            enter: 13,
-	            escape: 27,
-	            left: 37,
-	            right: 39,
-	            tab: 9,
-	            up: 38 };
-	
-	
-	
-	        // clicking outside the field closes suggestions
-	        $(document).on('click', function (event) {
-	            if (searchField.is(event.target)) {
-	                event.stopImmediatePropagation();
-	            } else {
-	                closeSuggestions();
-	            }
-	        });
-	
-	        // handle loss of focus due to TAB
-	        // need to run this onblur, but NOT when focus remains in the suggestions box
-	        // can we check focus in a parent element!? maybe a custom element
-	        // <combobox><input><ul></combobox> ??
-	        searchField.on('keydown', function (event) {
-	            switch (event.which) {
-	                case KEYS.up:
-	                case KEYS.down:
-	                    moveFocus(event.which === KEYS.down ? 1 : -1);
-	                    break;
-	                case KEYS.tab:
-	                    closeSuggestions();}
-	
-	        });
-	        searchField.on('keyup', function (event) {
-	            switch (event.which) {
-	                case KEYS.escape:
-	                case KEYS.enter:
-	                    closeSuggestions();}
-	
-	
-	            // delete
-	            // console.log( event.which );
-	        });
-	
-	        searchField.on('input', function () {
-	
-	            searchField.after(suggestions);
-	            searchField.attr('aria-owns', suggestions.attr('id'));
-	
-	            userTyped = this.value;
-	            if (userTyped.length < 3) {
-	                closeSuggestions();
-	                return;
-	            }
-	
-	            // console.log( 'fetch suggestions for ', userTyped );
-	
-	            $.ajax({
-	                // cache! (the URL will be change with the search text)
-	                cache: true,
-	                dataType: 'jsonp',
-	                url: 'https://find.search.qld.gov.au/s/suggest.json?',
-	                data: {
-	                    // TODO read these from search form
-	                    collection: $(form.elements.collection).filter('[name="collection"]').val() || 'qld-gov',
-	                    profile: $(form.elements.profile).filter('[name="profile"]').val() || 'qld_preview',
-	                    show: MAX_SUGGESTIONS,
-	                    partial_query: userTyped } }).
-	
-	
-	            done(function (data) {
-	                if (data.length < 1) {
-	                    closeSuggestions();
-	                    return;
-	                }
-	                // TODO if the user has typed more, filter the matches in this array
-	                // should we retreive more than 4 so there is a bit of slack here?
-	                // what if ajax repsonses arrive out of sequence? track last match?
-	                // console.log( 'suggestions for ', userTyped, data, 'user has typed', searchField.val() );
-	                var match = new RegExp(userTyped.replace(/([.+*?\[^\]$(){}=!<>|:-\\,])/g, '\\$1'), 'g');
-	                var safeInput = userTyped.replace(/</g, '&lt;');
-	                suggestions.html($.map(data, function (value) {
-	                    var htmlValue = value.replace(/</g, '&lt;').replace(match, '<mark>' + safeInput + '</mark>');
-	                    // use form.action + default params
-	                    return '<li><a href="https://find.search.qld.gov.au/s/search.html?collection=qld-gov&profile=qld&query=' + encodeURIComponent(value) + '">' + htmlValue + '</a></li>';
-	                }).join('\n'));
-	
-	                // issue #3: issues with typing over selected suggestion
-	                // https://github.com/qld-gov-au/jquery.autocomplete/issues/3
-	                // check length is increasing (if not, user is deleting input)
-	                // if ( searchField[0].value.length > lastSearch.length ) {
-	                // 	// set the value to the best answer and select the untyped portion of the text
-	                // 	prefillInput( data[0] );
-	                // }
-	                searchField.val();
-	                suggestions.attr('aria-busy', 'false');
-	            });
-	
-	            // show suggestions box
-	            // click on suggestion = fill in form and submit
-	            // hover over selection = update 'placeholder' style text
-	        });
-	    });
+	        // show suggestions box
+	        // click on suggestion = fill in form and submit
+	        // hover over selection = update 'placeholder' style text
+	      });
+	    }
+	  });
 	}); // onready
 
 /***/ }),
@@ -2107,7 +2122,8 @@
 	__webpack_require__(17);
 	__webpack_require__(18);
 	__webpack_require__(19);
-	var _accessibility = __webpack_require__(20);var _accessibility2 = _interopRequireDefault(_accessibility);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	__webpack_require__(20);
+	var _accessibility = __webpack_require__(22);var _accessibility2 = _interopRequireDefault(_accessibility);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	
 	_accessibility2.default.init();
 
@@ -2559,31 +2575,52 @@
 	var _qgGoogleKeys = __webpack_require__(6);var _qgGoogleKeys2 = _interopRequireDefault(_qgGoogleKeys);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	
 	(function ($, swe) {
-	  var googleRecaptchaApiKey = window.location.hostname.search(/\bdev\b|\btest\b|\blocalhost\b/) !== -1 ? _qgGoogleKeys2.default.defGoogleRecaptcha.uat : _qgGoogleKeys2.default.defGoogleRecaptcha.prod;
-	  var onloadRecaptcha = function onloadRecaptcha() {// eslint-disable-line
-	    $('form[data-recaptcha="true"]').find('input[type="submit"], button[type="submit"]').on('click', function (e) {
+	  var googleRecaptchaApiKey =
+	  window.location.hostname.search(
+	  /\bdev\b|\btest\b|\blocalhost\b|\buat\b/) !==
+	  -1 ?
+	  _qgGoogleKeys2.default.defGoogleRecaptcha.uat :
+	  _qgGoogleKeys2.default.defGoogleRecaptcha.prod;
+	  var onloadRecaptcha = function onloadRecaptcha() {
+	    // eslint-disable-line
+	    $('form[data-recaptcha="true"]').
+	    find('input[type="submit"], button[type="submit"]').
+	    on('click', function (e) {
 	      e.preventDefault();
 	      var subBtn = e.target;
 	      var form = $(subBtn).parents('form');
+	      try {
+	        grecaptcha.render(subBtn, {
+	          sitekey: googleRecaptchaApiKey, //this value will be replaced by build tool. from gulp-config/
+	          callback: function callback() {
+	            var response = grecaptcha.getResponse();
+	            if (
+	            response === '' ||
+	            response === undefined ||
+	            response.length === 0)
+	            {
+	              console.log('Invalid recaptcha');
+	              return false;
+	            } else {
+	              form.submit();
+	            }
+	          } });
 	
-	      grecaptcha.render(subBtn, {
-	        'sitekey': googleRecaptchaApiKey,
-	        'callback': function callback() {
-	          var response = grecaptcha.getResponse();
-	          if (response === '' || response === undefined || response.length === 0) {
-	            console.log('Invalid recaptcha');
-	            return false;
-	          } else {
-	            form.submit();
-	          }
-	        } });
-	
+	      } catch (e) {
+	        grecaptcha.reset();
+	        return false;
+	      }
 	      grecaptcha.execute();
 	    });
 	  };
+	  if ($('form[data-recaptcha="true"]').length > 0) {
+	    //enable recaptcha on form submits
+	    swe.ajaxCall(
+	    'https://www.google.com/recaptcha/api.js',
+	    'script',
+	    onloadRecaptcha,
+	    'Recaptcha unavailable');
 	
-	  if ($('form[data-recaptcha="true"]').length > 0) {//enable recaptcha on form submits
-	    swe.ajaxCall('https://www.google.com/recaptcha/api.js', 'script', onloadRecaptcha, 'Recaptcha unavailable');
 	  }
 	})(jQuery, qg.swe); /*
 	                    * Any form with form attribute data-recaptcha="true", will run and validate with Google invisible recaptcha
@@ -2820,21 +2857,24 @@
 	  'use strict';
 	  var linkType = '.PDF$|.DOC$|.DOCX$|.XLS$|.XLSX$|.RTF$';
 	  var contentType = 'PDF|DOC|DOCX|XLS|XLSX|RTF';
-	  // onready
 	  $(document).ready(function () {
 	    $('a', '#qg-primary-content, #qg-secondary-content').each(function () {
 	      var $this = $(this);
 	      var linkRegex = new RegExp(linkType, 'i');
-	      var contentRegex = new RegExp(contentType, 'i');
+	      // check to see if a link with a selected linkType exist
+	      // Example - cue-template-change-log.pdf|rtf...
 	      if (linkRegex.test($this.attr('href'))) {
-	        var linkText = $this.text();
-	        if (contentRegex.test(linkText)) {
-	          if (/\.\d*?/.test(linkText) && /KB/.test(linkText)) {
-	            var extractSize = new RegExp('\\((?:' + contentType.toUpperCase() + '),?\\s+[0-9\\.]+\\s*[KM]B\\)', 'i');
-	            linkText.match(extractSize) ? $(this).find('.meta').empty().append(linkText.match(extractSize)[0].toUpperCase().replace(/(\.\d*)/gi, '')) : '';
-	          }
-	        } else {
-	          linkText = $this.attr('href').replace(/^.*\.(.+)$/, '$1').toUpperCase();
+	        var contentRegex = new RegExp(contentType);
+	        var currContent = $this.text();
+	        if (/\.\d*?/.test(currContent)) {
+	          // check to see if decimals exist, if yes then round then off
+	          // Example (PDF 106.66) -> (PDF 106)
+	          var extractSize = new RegExp('\\((?:' + contentType.toUpperCase() + '),?\\s+[0-9\\.]+\\s*[KM]B\\)', 'i');
+	          currContent.match(extractSize) ? $(this).find('.meta').empty().append(currContent.match(extractSize)[0].toUpperCase().replace(/(\.\d*)/gi, '')) : '';
+	        } else if (!contentRegex.test(currContent)) {
+	          // check to see there is no doc type present in the content section
+	          // If yes then insert <span class="meta">PDF</span>
+	          var linkText = $this.attr('href').replace(/^.*\.(.+)$/, '$1').toUpperCase();
 	          $this.append(' <span class="meta">(' + linkText + ')</span>');
 	        }
 	      }
@@ -2844,6 +2884,382 @@
 
 /***/ }),
 /* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	'use strict';$(window).on('load', function () {
+	  if ($("script[src*='jquery.fancybox']").length === 0) {
+	    if ($('.qg-image-gallery') || $('.qg-lightbox')) {
+	      __webpack_require__(21)(['/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css', '/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js'], function () {
+	        $('[data-fancybox^="gallery"]').fancybox({
+	          buttons: ['thumbs', 'close'],
+	          mobile: {
+	            preventCaptionOverlap: false,
+	            idleTime: false,
+	            clickSlide: function clickSlide(current, event) {
+	              return current.type === 'image' ? 'close' : 'close';
+	            } },
+	
+	          baseTpl: '\n        <div class="fancybox-container" role="dialog" tabindex="-1">\n          <div class="fancybox-bg"></div>\n          <div class="fancybox-inner">\n                <div class="fancybox-infobar"><button data-fancybox-prev="" class="fancybox-button fancybox-button--arrow_left p-0" title="Previous"><span class="font-awesome fa-2x fa-caret-left"></span></button><span data-fancybox-index></span>&nbsp;/&nbsp;<span data-fancybox-count></span><button data-fancybox-next="" class="fancybox-button fancybox-button--arrow_right p-0" title="Next"><span class="font-awesome fa-2x fa-caret-right"></span></button></div>\n                <div class="fancybox-toolbar">{{buttons}}</div>\n                <div class="fancybox-navigation">{{arrows}}</div>\n                <div class="fancybox-stage"></div>\n                <div class="fancybox-caption"></div>\n          </div>\n        </div>\n      ',
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	          btnTpl: {
+	            arrowLeft: '\n          <button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left p-0" title="{{PREV}}">\n            <span class="font-awesome fa-2x fa-caret-left"></span>\n          </button>\n        ',
+	
+	
+	
+	
+	            arrowRight: '\n           <button data-fancybox-next class="fancybox-button fancybox-button--arrow_right p-0" title="{{NEXT}}">\n            <span class="font-awesome fa-2x fa-caret-right"></span>\n          </button>\n        ' },
+	
+	
+	
+	
+	
+	          caption: function caption(instance, item) {
+	            var caption = $(this).data('caption') || '';
+	
+	            if (item.type === 'image') {
+	              caption = '<div class="fancybox-border">' + (caption.length ? caption : '') + '</div>';
+	            }
+	            return caption;
+	          } });
+	
+	      });
+	    }
+	  }
+	});
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function(root, factory) {
+	  if (true) {
+	    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory), __WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ? (__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	  } else if (typeof exports === 'object') {
+	    module.exports = factory();
+	  } else {
+	    root.loadjs = factory();
+	  }
+	}(this, function() {
+	/**
+	 * Global dependencies.
+	 * @global {Object} document - DOM
+	 */
+	
+	var devnull = function() {},
+	    bundleIdCache = {},
+	    bundleResultCache = {},
+	    bundleCallbackQueue = {};
+	
+	
+	/**
+	 * Subscribe to bundle load event.
+	 * @param {string[]} bundleIds - Bundle ids
+	 * @param {Function} callbackFn - The callback function
+	 */
+	function subscribe(bundleIds, callbackFn) {
+	  // listify
+	  bundleIds = bundleIds.push ? bundleIds : [bundleIds];
+	
+	  var depsNotFound = [],
+	      i = bundleIds.length,
+	      numWaiting = i,
+	      fn,
+	      bundleId,
+	      r,
+	      q;
+	
+	  // define callback function
+	  fn = function (bundleId, pathsNotFound) {
+	    if (pathsNotFound.length) depsNotFound.push(bundleId);
+	
+	    numWaiting--;
+	    if (!numWaiting) callbackFn(depsNotFound);
+	  };
+	
+	  // register callback
+	  while (i--) {
+	    bundleId = bundleIds[i];
+	
+	    // execute callback if in result cache
+	    r = bundleResultCache[bundleId];
+	    if (r) {
+	      fn(bundleId, r);
+	      continue;
+	    }
+	
+	    // add to callback queue
+	    q = bundleCallbackQueue[bundleId] = bundleCallbackQueue[bundleId] || [];
+	    q.push(fn);
+	  }
+	}
+	
+	
+	/**
+	 * Publish bundle load event.
+	 * @param {string} bundleId - Bundle id
+	 * @param {string[]} pathsNotFound - List of files not found
+	 */
+	function publish(bundleId, pathsNotFound) {
+	  // exit if id isn't defined
+	  if (!bundleId) return;
+	
+	  var q = bundleCallbackQueue[bundleId];
+	
+	  // cache result
+	  bundleResultCache[bundleId] = pathsNotFound;
+	
+	  // exit if queue is empty
+	  if (!q) return;
+	
+	  // empty callback queue
+	  while (q.length) {
+	    q[0](bundleId, pathsNotFound);
+	    q.splice(0, 1);
+	  }
+	}
+	
+	
+	/**
+	 * Execute callbacks.
+	 * @param {Object or Function} args - The callback args
+	 * @param {string[]} depsNotFound - List of dependencies not found
+	 */
+	function executeCallbacks(args, depsNotFound) {
+	  // accept function as argument
+	  if (args.call) args = {success: args};
+	
+	  // success and error callbacks
+	  if (depsNotFound.length) (args.error || devnull)(depsNotFound);
+	  else (args.success || devnull)(args);
+	}
+	
+	
+	/**
+	 * Load individual file.
+	 * @param {string} path - The file path
+	 * @param {Function} callbackFn - The callback function
+	 */
+	function loadFile(path, callbackFn, args, numTries) {
+	  var doc = document,
+	      async = args.async,
+	      maxTries = (args.numRetries || 0) + 1,
+	      beforeCallbackFn = args.before || devnull,
+	      pathStripped = path.replace(/^(css|img)!/, ''),
+	      isLegacyIECss,
+	      e;
+	
+	  numTries = numTries || 0;
+	
+	  if (/(^css!|\.css$)/.test(path)) {
+	    // css
+	    e = doc.createElement('link');
+	    e.rel = 'stylesheet';
+	    e.href = pathStripped;
+	
+	    // tag IE9+
+	    isLegacyIECss = 'hideFocus' in e;
+	
+	    // use preload in IE Edge (to detect load errors)
+	    if (isLegacyIECss && e.relList) {
+	      isLegacyIECss = 0;
+	      e.rel = 'preload';
+	      e.as = 'style';
+	    }
+	  } else if (/(^img!|\.(png|gif|jpg|svg)$)/.test(path)) {
+	    // image
+	    e = doc.createElement('img');
+	    e.src = pathStripped;    
+	  } else {
+	    // javascript
+	    e = doc.createElement('script');
+	    e.src = path;
+	    e.async = async === undefined ? true : async;
+	  }
+	
+	  e.onload = e.onerror = e.onbeforeload = function (ev) {
+	    var result = ev.type[0];
+	
+	    // treat empty stylesheets as failures to get around lack of onerror
+	    // support in IE9-11
+	    if (isLegacyIECss) {
+	      try {
+	        if (!e.sheet.cssText.length) result = 'e';
+	      } catch (x) {
+	        // sheets objects created from load errors don't allow access to
+	        // `cssText` (unless error is Code:18 SecurityError)
+	        if (x.code != 18) result = 'e';
+	      }
+	    }
+	
+	    // handle retries in case of load failure
+	    if (result == 'e') {
+	      // increment counter
+	      numTries += 1;
+	
+	      // exit function and try again
+	      if (numTries < maxTries) {
+	        return loadFile(path, callbackFn, args, numTries);
+	      }
+	    } else if (e.rel == 'preload' && e.as == 'style') {
+	      // activate preloaded stylesheets
+	      return e.rel = 'stylesheet'; // jshint ignore:line
+	    }
+	    
+	    // execute callback
+	    callbackFn(path, result, ev.defaultPrevented);
+	  };
+	
+	  // add to document (unless callback returns `false`)
+	  if (beforeCallbackFn(path, e) !== false) doc.head.appendChild(e);
+	}
+	
+	
+	/**
+	 * Load multiple files.
+	 * @param {string[]} paths - The file paths
+	 * @param {Function} callbackFn - The callback function
+	 */
+	function loadFiles(paths, callbackFn, args) {
+	  // listify paths
+	  paths = paths.push ? paths : [paths];
+	
+	  var numWaiting = paths.length,
+	      x = numWaiting,
+	      pathsNotFound = [],
+	      fn,
+	      i;
+	
+	  // define callback function
+	  fn = function(path, result, defaultPrevented) {
+	    // handle error
+	    if (result == 'e') pathsNotFound.push(path);
+	
+	    // handle beforeload event. If defaultPrevented then that means the load
+	    // will be blocked (ex. Ghostery/ABP on Safari)
+	    if (result == 'b') {
+	      if (defaultPrevented) pathsNotFound.push(path);
+	      else return;
+	    }
+	
+	    numWaiting--;
+	    if (!numWaiting) callbackFn(pathsNotFound);
+	  };
+	
+	  // load scripts
+	  for (i=0; i < x; i++) loadFile(paths[i], fn, args);
+	}
+	
+	
+	/**
+	 * Initiate script load and register bundle.
+	 * @param {(string|string[])} paths - The file paths
+	 * @param {(string|Function|Object)} [arg1] - The (1) bundleId or (2) success
+	 *   callback or (3) object literal with success/error arguments, numRetries,
+	 *   etc.
+	 * @param {(Function|Object)} [arg2] - The (1) success callback or (2) object
+	 *   literal with success/error arguments, numRetries, etc.
+	 */
+	function loadjs(paths, arg1, arg2) {
+	  var bundleId,
+	      args;
+	
+	  // bundleId (if string)
+	  if (arg1 && arg1.trim) bundleId = arg1;
+	
+	  // args (default is {})
+	  args = (bundleId ? arg2 : arg1) || {};
+	
+	  // throw error if bundle is already defined
+	  if (bundleId) {
+	    if (bundleId in bundleIdCache) {
+	      throw "LoadJS";
+	    } else {
+	      bundleIdCache[bundleId] = true;
+	    }
+	  }
+	
+	  function loadFn(resolve, reject) {
+	    loadFiles(paths, function (pathsNotFound) {
+	      // execute callbacks
+	      executeCallbacks(args, pathsNotFound);
+	      
+	      // resolve Promise
+	      if (resolve) {
+	        executeCallbacks({success: resolve, error: reject}, pathsNotFound);
+	      }
+	
+	      // publish bundle load event
+	      publish(bundleId, pathsNotFound);
+	    }, args);
+	  }
+	  
+	  if (args.returnPromise) return new Promise(loadFn);
+	  else loadFn();
+	}
+	
+	
+	/**
+	 * Execute callbacks when dependencies have been satisfied.
+	 * @param {(string|string[])} deps - List of bundle ids
+	 * @param {Object} args - success/error arguments
+	 */
+	loadjs.ready = function ready(deps, args) {
+	  // subscribe to bundle load event
+	  subscribe(deps, function (depsNotFound) {
+	    // execute callbacks
+	    executeCallbacks(args, depsNotFound);
+	  });
+	
+	  return loadjs;
+	};
+	
+	
+	/**
+	 * Manually satisfy bundle dependencies.
+	 * @param {string} bundleId - The bundle id
+	 */
+	loadjs.done = function done(bundleId) {
+	  publish(bundleId, []);
+	};
+	
+	
+	/**
+	 * Reset loadjs dependencies statuses
+	 */
+	loadjs.reset = function reset() {
+	  bundleIdCache = {};
+	  bundleResultCache = {};
+	  bundleCallbackQueue = {};
+	};
+	
+	
+	/**
+	 * Determine if bundle has already been defined
+	 * @param String} bundleId - The bundle id
+	 */
+	loadjs.isDefined = function isDefined(bundleId) {
+	  return bundleId in bundleIdCache;
+	};
+	
+	
+	// export
+	return loadjs;
+	
+	}));
+
+
+/***/ }),
+/* 22 */
 /***/ (function(module, exports) {
 
 	/* ========================================================================
@@ -2887,7 +3303,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 21 */
+/* 23 */
 /***/ (function(module, exports) {
 
 	'use strict';(function ($) {
@@ -2898,7 +3314,7 @@
 	})(jQuery);
 
 /***/ }),
-/* 22 */
+/* 24 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -2941,10 +3357,10 @@
 	module.exports = activeSideNav;
 
 /***/ }),
-/* 23 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(24);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+	'use strict';Object.defineProperty(exports, "__esModule", { value: true });var _breakpoints = __webpack_require__(26);var _breakpoints2 = _interopRequireDefault(_breakpoints);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
 	var stepNav = {
 	  config: {
 	    $guideSubNav: $('#qg-section-nav .guide-sub-nav'),
@@ -3005,7 +3421,7 @@
 	stepNav;
 
 /***/ }),
-/* 24 */
+/* 26 */
 /***/ (function(module, exports) {
 
 	"use strict";Object.defineProperty(exports, "__esModule", { value: true });var breakpoints = function () {
@@ -3020,7 +3436,7 @@
 	breakpoints;
 
 /***/ }),
-/* 25 */
+/* 27 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3151,7 +3567,7 @@
 	module.exports = { init: init };
 
 /***/ }),
-/* 26 */
+/* 28 */
 /***/ (function(module, exports) {
 
 	'use strict';(function () {
@@ -3163,7 +3579,7 @@
 	})();
 
 /***/ }),
-/* 27 */
+/* 29 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
@@ -3184,7 +3600,7 @@
 	});
 
 /***/ }),
-/* 28 */
+/* 30 */
 /***/ (function(module, exports) {
 
 	'use strict'; /**
