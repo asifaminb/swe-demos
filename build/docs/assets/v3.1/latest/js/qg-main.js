@@ -287,23 +287,20 @@
 	(function ($) {
 	  'use strict';
 	
-	
-	  var SUBMIT_TOLERANCE = 10000,
-	  DEFAULT_STATUS_HTML = '<div class="alert alert-warning" role="alert"><div class="inner"><h2><i class="fa fa-exclamation-triangle"></i>Please check your answers</h2><ol></ol></div></div>',
+	  var SUBMIT_TOLERANCE = 10000;
+	  var DEFAULT_STATUS_HTML = '<div class="alert alert-warning" role="alert"><div class="inner"><h2><i class="fa fa-exclamation-triangle"></i>Please check your answers</h2><ol></ol></div></div>';
 	  // fields that validate
-	  candidateForValidation = 'input, select, textarea',
-	
+	  var candidateForValidation = 'input, select, textarea';
 	
 	  // invalidFilter
-	  invalidFilter = function invalidFilter() {
+	  var invalidFilter = function invalidFilter() {
 	    return !(this.disabled || this.validity.valid);
-	  },
-	
+	  };
 	
 	  // follow plugin conventions for storing plugin data
 	  // http://docs.jquery.com/Plugins/Authoring#Data
-	  pluginDataKey = 'formValidation',
-	  pluginData = function pluginData(key, value) {
+	  var pluginDataKey = 'formValidation';
+	  var pluginData = function pluginData(key, value) {
 	    var dataHash = this.data(pluginDataKey) || this.data(pluginDataKey, {}).data(pluginDataKey);
 	
 	    if (typeof key !== 'undefined') {
@@ -317,15 +314,14 @@
 	    }
 	
 	    return dataHash;
-	  },
-	
+	  };
 	
 	  // helper for .label, .hint and .alert
-	  getLabelComponent = function getLabelComponent(component, options) {
+	  var getLabelComponent = function getLabelComponent(component, options) {
 	    return this.map(function (index, domElement) {
-	      var $element = $(domElement),
-	      labelElement = null,
-	      foundElement = null;
+	      var $element = $(domElement);
+	      var labelElement = null;
+	      var foundElement = null;
 	
 	      if ((typeof options === 'undefined' ? 'undefined' : _typeof(options)) === 'object' && options.level === 'group') {
 	        foundElement = $element.formValidation('group').find(component)[0];
@@ -343,14 +339,13 @@
 	      }
 	      return foundElement;
 	    });
-	  },
+	  };
 	
-	
-	  changeValidityCheck = function changeValidityCheck() {
-	    var $this = $(this),
-	    alertElement = $this.formValidation('alert'),
-	    alertLevel,
-	    invalidContainers;
+	  var changeValidityCheck = function changeValidityCheck() {
+	    var $this = $(this);
+	    var alertElement = $this.formValidation('alert');
+	    var alertLevel;
+	    var invalidContainers;
 	
 	    // is this control valid?
 	    if (this.validity.valid) {
@@ -395,17 +390,16 @@
 	      // NOTE we don't flag the question as .invalid now
 	      // .invalid only happens on submit, to soften inline validation errors
 	    }
-	  },
-	
+	  };
 	
 	  // checks for invalid elements
 	  // returns number of invalid elements
-	  submitValidityCheck = function submitValidityCheck() {
+	  var submitValidityCheck = function submitValidityCheck() {
 	    // form object
-	    var form = $(this).closest('form'),
+	    var form = $(this).closest('form');
 	
 	    // invalid fields
-	    invalid = form.find(candidateForValidation).filter(function invalidFields() {
+	    var invalid = form.find(candidateForValidation).filter(function invalidFields() {
 	      // skip disabled
 	      if (this.disabled) {
 	        return false;
@@ -422,16 +416,16 @@
 	      }
 	
 	      return this.validity && !this.validity.valid;
-	    }),
+	    });
 	
 	    // alert container
-	    alert = pluginData.call(form, 'summaryElement') || pluginData.call(form, 'summaryElement', $(DEFAULT_STATUS_HTML)),
+	    var alert = pluginData.call(form, 'summaryElement') || pluginData.call(form, 'summaryElement', $(DEFAULT_STATUS_HTML));
 	
 	    // messages within alert
-	    messages = alert.find('ol'),
+	    var messages = alert.find('ol');
 	
 	    // track groups
-	    lastGroupSeen = true;
+	    var lastGroupSeen = true;
 	
 	    if (invalid.length > 0) {
 	      // remove old messages
@@ -440,15 +434,15 @@
 	      // add new messages
 	      invalid.each(function () {
 	        // get field
-	        var $this = $(this),
+	        var $this = $(this);
 	        // get group (if exists)
-	        group = $this.formValidation('group'),
+	        var group = $this.formValidation('group');
 	        // get label or group label
-	        label = $this.formValidation('label', {
-	          level: group.length > 0 ? 'group' : null }),
+	        var label = $this.formValidation('label', {
+	          level: group.length > 0 ? 'group' : null });
 	
-	        labelId,
-	        item;
+	        var labelId;
+	        var item;
 	
 	        // get the label id
 	        if (label.length > 0) {
@@ -478,13 +472,12 @@
 	    }
 	
 	    return invalid.length;
-	  },
+	  };
 	
-	
-	  submitValidationHandler = function submitValidationHandler(event) {
+	  var submitValidationHandler = function submitValidationHandler(event) {
 	    // validate form
-	    var count = submitValidityCheck.call(this),
-	    form = $(this);
+	    var count = submitValidityCheck.call(this);
+	    var form = $(this);
 	
 	    // remove invalid class from questions that do not contain invalid fields
 	    form.find('.invalid').filter(function () {
@@ -495,7 +488,6 @@
 	    // remove old alerts (change handler should have already done this)
 	    .find('.alert').
 	    remove();
-	
 	
 	
 	    // anything invalid?
@@ -533,18 +525,17 @@
 	      // cancel submit
 	      return false;
 	    }
-	  },
-	
+	  };
 	
 	  // bind this AFTER the validation handler
 	  // only invoked if validation did not prevent submit
 	  // This will softlock submit if form submit passes this function with in SUBMIT_TOLERANCE timerange
-	  submitDoneHandler = function submitDoneHandler(event) {
+	  var submitDoneHandler = function submitDoneHandler(event) {
 	    // use event.timeStamp when available and $.now() otherwise
-	    var timeStamp = event.timeStamp || $.now(),
-	    form = $(this),
-	    summaryElement = pluginData.call(form, 'summaryElement'),
-	    lastSubmitTimeStamp;
+	    var timeStamp = event.timeStamp || $.now();
+	    var form = $(this);
+	    var summaryElement = pluginData.call(form, 'summaryElement');
+	    var lastSubmitTimeStamp;
 	
 	
 	    // remove summary element from DOM on successful submit
@@ -563,17 +554,16 @@
 	      // store the timestamp
 	      pluginData.call(form, 'lastSubmitTimeStamp', timeStamp);
 	    }
-	  },
-	
+	  };
 	
 	  // plugin methods
-	  methods = {
+	  var methods = {
 	    // $( x ).formValidation( 'alert' ) -- get
 	    // get alert text
 	    alert: function alert() {
 	      return this.map(function (index, domElement) {
-	        var $element = $(domElement),
-	        group;
+	        var $element = $(domElement);
+	        var group;
 	
 	        if ($element.is(':radio, :checkbox') === true) {
 	          return $element.closest('fieldset').find('legend > .alert')[0];
@@ -589,7 +579,6 @@
 	      });
 	    },
 	
-	
 	    // $( x ).formValidation( 'label' )
 	    // $( x ).formValidation( 'label', { level : group })
 	    // return .label associated with element or containing group
@@ -597,14 +586,12 @@
 	      return getLabelComponent.call(this, '.label', options);
 	    },
 	
-	
 	    // $( x ).formValidation( 'hint' )
 	    // $( x ).formValidation( 'hint', { level : group })
 	    // return .hint associated with element or containing group
 	    hint: function hint(options) {
 	      return getLabelComponent.call(this, '.hint', options);
 	    },
-	
 	
 	    // $( x ).formValidation( 'question' )
 	    // return question element for item
@@ -621,7 +608,6 @@
 	      });
 	    },
 	
-	
 	    // $( x ).formValidation( 'group' )
 	    // return group element for item
 	    group: function group() {
@@ -632,7 +618,6 @@
 	        })[0];
 	      });
 	    },
-	
 	
 	    // $( x ).formValidation( 'validate' )
 	    // binds validation handler functions
@@ -671,11 +656,9 @@
 	      return submitValidationHandler.call(this, event);
 	    },
 	
-	
 	    // $( x ).formValidation( 'getValidationMessage' )
 	    // return String validation message, e.g. "Must be completed"
 	    getValidationMessage: function getValidationMessage() {
-	
 	      var validityState = this[0].validity;
 	
 	      if (typeof validityState === 'undefined' || validityState.valid === true) {
@@ -705,9 +688,7 @@
 	    } else {
 	      $.error('Method ' + method + ' does not exist on jQuery.formValidation');
 	    }
-	
 	  };
-	
 	
 	  // legacy API
 	  $.fn.forcesForms = $.fn.formValidation;
@@ -718,7 +699,6 @@
 	(function ($) {
 	  'use strict';
 	
-	
 	  /**
 	                 * Assigns a unique value to `@id` unless hasAttribute( 'id' ) is true
 	                 *
@@ -727,7 +707,6 @@
 	                 * @return jquery object (chaining supported)
 	                 */
 	  $.fn.generateId = function (preferredId) {
-	
 	    var i = 1;
 	
 	    if (!preferredId) {
@@ -737,11 +716,9 @@
 	    }
 	
 	    return this.each(function () {
-	
 	      var id;
 	
 	      if (!this.getAttribute('id')) {
-	
 	        id = preferredId;
 	        while (document.getElementById(id)) {
 	          id = preferredId + String(i);
@@ -750,10 +727,7 @@
 	        this.setAttribute('id', id);
 	      }
 	    });
-	
 	  };
-	
-	
 	})(jQuery);
 	/*! HTML5 constraintValidationAPI - v1.0.7 - 2015-02-19
 	             * https://github.com/bboyle/html5-constraint-validation-API
@@ -763,38 +737,35 @@
 	  (function ($) {
 	    'use strict';
 	
-	
 	    // http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#valid-e-mail-address
 	    // 1*( atext / "." ) "@" ldh-str 1*( "." ldh-str )
-	    var REXP_EMAIL = /^[A-Za-z0-9!#$%&'*+\-\/=\?\^_`\{\|\}~\.]+@[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)*$/,
+	    var REXP_EMAIL = /^[A-Za-z0-9!#$%&'*+\-\/=\?\^_`\{\|\}~\.]+@[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)*$/;
 	
 	    // fields that validate
-	    candidateForValidation = 'input, select, textarea',
+	    var candidateForValidation = 'input, select, textarea';
 	
 	    // for feature detection
-	    input = $('<input>').get(0),
+	    var input = $('<input>').get(0);
 	
 	    // polyfill test
-	    polyfill = _typeof(input.validity) !== 'object',
+	    var polyfill = _typeof(input.validity) !== 'object';
 	
 	    // radio button bug (google earth internal browser)
-	    radioButtonBug = !polyfill && $('<input type="radio" required checked>').get(0).validity.valueMissing === true,
-	    validateBuggyRadioButtons,
+	    var radioButtonBug = !polyfill && $('<input type="radio" required checked>').get(0).validity.valueMissing === true;
+	    var validateBuggyRadioButtons;
 	
 	    // invalid fields filter
-	    isInvalid = function isInvalid() {
+	    var isInvalid = function isInvalid() {
 	      return !(this.disabled || this.validity.valid);
-	    },
+	    };
 	
 	    // get all radio buttons
-	    getRadioButtonsInGroup = function getRadioButtonsInGroup(radio) {
+	    var getRadioButtonsInGroup = function getRadioButtonsInGroup(radio) {
 	      return $(radio.form.elements[radio.name]).filter('[name="' + radio.name + '"]');
-	    },
-	
+	    };
 	
 	    // manage validity state object
-	    validityState = function validityState(typeMismatch, valueMissing, customError, message, patternMismatch) {
-	
+	    var validityState = function validityState(typeMismatch, valueMissing, customError, message, patternMismatch) {
 	      if (typeof message === 'string') {
 	        customError = !!message;
 	      }
@@ -805,18 +776,17 @@
 	        valueMissing: !!valueMissing,
 	        valid: !valueMissing && !customError && !typeMismatch && !patternMismatch };
 	
-	    },
+	    };
 	
-	
-	    validateField = function validateField(message) {
-	      var $this = $(this),
-	      required = !!$this.attr('required'),
-	      radio = this.type === 'radio' && getRadioButtonsInGroup(this),
-	      valueMissing,
-	      invalidEmail = this.getAttribute('type') === 'email' && !!this.value && !REXP_EMAIL.test(this.value),
-	      patternMismatch,
-	      pattern,
-	      newValidityState;
+	    var validateField = function validateField(message) {
+	      var $this = $(this);
+	      var required = !!$this.attr('required');
+	      var radio = this.type === 'radio' && getRadioButtonsInGroup(this);
+	      var valueMissing;
+	      var invalidEmail = this.getAttribute('type') === 'email' && !!this.value && !REXP_EMAIL.test(this.value);
+	      var patternMismatch;
+	      var pattern;
+	      var newValidityState;
 	
 	
 	      // radio buttons are required if any single radio button is flagged as required
@@ -825,29 +795,23 @@
 	      }
 	      // if required, check for missing value
 	      if (required) {
-	
 	        if (/^select$/i.test(this.nodeName)) {
 	          valueMissing = this.selectedIndex === 0 && this.options[0].value === '';
-	
 	        } else if (radio) {
 	          valueMissing = radio.filter(':checked').length === 0;
-	
 	        } else if (this.type === 'checkbox') {
 	          valueMissing = !this.checked;
-	
 	        } else {
 	          valueMissing = !this.value;
 	        }
-	
 	      }
 	
-	      if (!!this.getAttribute('pattern')) {
+	      if (this.getAttribute('pattern')) {
 	        if (this.value.length > 0) {
 	          // http://www.whatwg.org/specs/web-apps/current-work/multipage/common-input-element-attributes.html#compiled-pattern-regular-expression
 	          pattern = new RegExp('^(?:' + this.getAttribute('pattern') + ')$');
 	
 	          patternMismatch = !pattern.test(this.value);
-	
 	        } else {
 	          patternMismatch = false;
 	        }
@@ -864,30 +828,24 @@
 	      // set .validationMessage
 	      if (this.validity.valid) {
 	        this.validationMessage = '';
-	
 	      } else if (this.validity.customError) {
 	        if (typeof message === 'string') {
 	          this.validationMessage = message;
 	        }
-	
 	      } else if (this.validity.valueMissing) {
 	        this.validationMessage = 'Please answer this question';
-	
 	      } else if (this.validity.typeMismatch) {
 	        this.validationMessage = 'Please type an email address';
-	
 	      } else if (this.validity.patternMismatch) {
 	        this.validationMessage = 'Please use the format shown';
-	
 	      } else {
 	        this.validationMessage = 'Please answer the question correctly';
 	      }
 	
 	      return this.disabled || this.validity.valid;
-	    },
+	    };
 	
-	
-	    changeHandler = function changeHandler(event) {
+	    var changeHandler = function changeHandler(event) {
 	      var target = event.target;
 	
 	      validateField.call(target);
@@ -898,23 +856,19 @@
 	          this.validationMessage = target.validationMessage;
 	        });
 	      }
-	    },
+	    };
 	
-	
-	    submitHandler = function submitHandler(event) {
-	
-	      var form = $(this),
-	      novalidate = !!form.attr('novalidate'),
-	      invalid = false;
+	    var submitHandler = function submitHandler(event) {
+	      var form = $(this);
+	      var novalidate = !!form.attr('novalidate');
+	      var invalid = false;
 	
 	
 	      // polyfill validation?
 	      if (polyfill) {
 	        // check fields
 	        form.find(candidateForValidation).each(function () {
-	
 	          invalid = !validateField.call(this);
-	
 	
 	          // unless @novalidate
 	          if (!novalidate) {
@@ -945,10 +899,9 @@
 	        event.preventDefault();
 	        return false;
 	      }
-	    },
+	    };
 	
-	
-	    initConstraintValidationAPI = function initConstraintValidationAPI() {
+	    var initConstraintValidationAPI = function initConstraintValidationAPI() {
 	      var candidates = $(candidateForValidation);
 	
 	      // INPUT validityState
@@ -957,10 +910,8 @@
 	        candidates.filter(function () {
 	          return _typeof(this.validity) !== 'object';
 	        }).each(function () {
-	
 	          this.validity = validityState(false, false, false, '', false);
 	          this.validationMessage = '';
-	
 	        });
 	
 	        // check validity on change
@@ -1067,16 +1018,12 @@
 	    };
 	
 	
-	
 	    // run immediately and ondocumentready
 	    initConstraintValidationAPI();
 	    $(initConstraintValidationAPI);
 	
-	
 	    // expose init function
 	    window.initConstraintValidationAPI = initConstraintValidationAPI;
-	
-	
 	  })(jQuery);
 	}
 	/*
@@ -1093,9 +1040,7 @@
 	   */
 	
 	(function ($) {
-	
 	  $.fn.simplyCountable = function (options) {
-	
 	    options = $.extend({
 	      counter: '#counter',
 	      countType: 'characters',
@@ -1113,13 +1058,11 @@
 	    var navKeys = [33, 34, 35, 36, 37, 38, 39, 40];
 	
 	    return $(this).each(function () {
-	
-	      var countable = $(this),
-	      counter = $(options.counter);
+	      var countable = $(this);
+	      var counter = $(options.counter);
 	      if (!counter.length) {return false;}
 	
 	      var countCheck = function countCheck() {
-	
 	        var count;
 	        var revCount;
 	
@@ -1191,7 +1134,6 @@
 	          counter.removeClass(options.overClass).addClass(options.safeClass);
 	          options.onSafeCount(countInt(), countable, counter);
 	        }
-	
 	      };
 	
 	      countCheck();
@@ -1211,11 +1153,8 @@
 	            break;}
 	
 	      });
-	
 	    });
-	
 	  };
-	
 	})(jQuery); /*! relevance - v2.1.0 - 2015-03-04
 	            * https://github.com/bboyle/relevance
 	            * Copyright (c) 2015 Ben Boyle; Licensed MIT */
@@ -1223,34 +1162,34 @@
 	  (function ($) {
 	    'use strict';
 	
-	    var relevantEvent = 'relevant',
-	    irrelevantEvent = 'irrelevant',
-	    elementsToDisable = 'button, input, select, textarea',
-	    polyfillHidden = function () {
+	    var relevantEvent = 'relevant';
+	    var irrelevantEvent = 'irrelevant';
+	    var elementsToDisable = 'button, input, select, textarea';
+	    var polyfillHidden = function () {
 	      var hidden = $('<div hidden></div>');
 	      var hiddenSupported = hidden.appendTo('body').is(':hidden');
 	      hidden.remove();
 	      return !hiddenSupported;
-	    }(),
+	    }();
 	
-	    formElementsByName = function formElementsByName(form, name) {
+	    var formElementsByName = function formElementsByName(form, name) {
 	      // filter out the @id matching of HTMLFormElement.elements[]
 	      return $(form.elements[name]).filter('[name="' + name + '"]');
-	    },
+	    };
 	
-	    filterRelevant = function filterRelevant() {
+	    var filterRelevant = function filterRelevant() {
 	      return $(this).closest('[hidden]').length === 0;
-	    },
+	    };
 	
-	    filterIrrelevant = function filterIrrelevant() {
+	    var filterIrrelevant = function filterIrrelevant() {
 	      return $(this).closest('[hidden]').length > 0;
-	    },
+	    };
 	
-	    valueMap = function valueMap(element) {
+	    var valueMap = function valueMap(element) {
 	      return element.value;
-	    },
+	    };
 	
-	    valueInArray = function valueInArray(possibleValues, actualValues) {
+	    var valueInArray = function valueInArray(possibleValues, actualValues) {
 	      var i;
 	      if ((typeof possibleValues === 'undefined' ? 'undefined' : _typeof(possibleValues)) !== 'object') {
 	        possibleValues = [possibleValues];
@@ -1263,22 +1202,22 @@
 	      }
 	
 	      return false;
-	    },
+	    };
 	
 	    // when changing a control that alters relevance of other elements…
-	    recalculateRelevance = function recalculateRelevance() {
+	    var recalculateRelevance = function recalculateRelevance() {
 	      // assume dependency map exists
-	      var map = $(this.form).data('relevance').dependencyMap[this.name],
-	      values = $.map(formElementsByName(this.form, this.name).filter('select,:checked').filter(':visible'), valueMap);
+	      var map = $(this.form).data('relevance').dependencyMap[this.name];
+	      var values = $.map(formElementsByName(this.form, this.name).filter('select,:checked').filter(':visible'), valueMap);
 	
 	
 	      $.each(map, function (index, config) {
 	        config.items.relevance('relevant', valueInArray(config.values, values) !== config.negate);
 	      });
-	    },
+	    };
 	
 	    // when an element changes relevance, check descendent controls that alter relevance in turn…
-	    recalculateDependents = function recalculateDependents(isRelevant) {
+	    var recalculateDependents = function recalculateDependents(isRelevant) {
 	      var form,
 	      dependencyMap,
 	      targets;
@@ -1297,14 +1236,13 @@
 	              return elementOfArray.name;
 	            }));
 	            $.each(targets, function (index, name) {
-	              var map = dependencyMap[name],
-	              values;
+	              var map = dependencyMap[name];
+	              var values;
 	
 	              if ((typeof map === 'undefined' ? 'undefined' : _typeof(map)) === 'object') {
 	                $.each(map, function (index, config) {
 	                  if (isRelevant === false) {
 	                    config.items.relevance('relevant', false);
-	
 	                  } else {
 	                    values = $.map(formElementsByName(form[0], name).filter('select,:checked').filter(':visible'), valueMap);
 	                    config.items.relevance('relevant', valueInArray(config.values, values) !== config.negate);
@@ -1315,10 +1253,9 @@
 	          }
 	        }
 	      }
-	    },
+	    };
 	
-	
-	    methods = {
+	    var methods = {
 	
 	      // $( x ).relevance( 'relevant', true )
 	      // if the element is hidden, fire a 'relevant' event
@@ -1448,15 +1385,15 @@
 	        options);
 	
 	        this.find(options.instructionSelector).each(function () {
-	          var $this = $(this),
-	          value = $this.text(),
-	          question = $this.closest(options.questionSelector),
-	          toggle = question.prevAll(options.questionSelector),
-	          i,
-	          answers,
-	          nestedToggles,
-	          match = false,
-	          negate = false;
+	          var $this = $(this);
+	          var value = $this.text();
+	          var question = $this.closest(options.questionSelector);
+	          var toggle = question.prevAll(options.questionSelector);
+	          var i;
+	          var answers;
+	          var nestedToggles;
+	          var match = false;
+	          var negate = false;
 	
 	          // pattern: (If different to <PREVIOUS QUESTION>)
 	          if (/If different to/.test(value)) {
@@ -1526,19 +1463,17 @@
 	
 	  var displayFileSize;
 	
-	
 	  // bail out if no file API support
 	  if (_typeof($('<input type="file">')[0].files) !== 'object') {
 	    // duplicate fsize instruction before submit button
 	    $('.max-fsize').each(function () {
-	      var fsize = $(this),
-	      form;
+	      var fsize = $(this);
+	      var form;
 	      form = fsize.closest('.preamble').nextAll('form').eq(0);
 	      form.find('.actions').before('<p>' + fsize.parent().html() + '</p>');
 	    });
 	    return;
 	  }
-	
 	
 	  // display file size
 	  displayFileSize = function displayFileSize(input) {
@@ -1555,12 +1490,11 @@
 	    }
 	  };
 	
-	
 	  // forms with max file size
 	  $('.max-fsize').each(function () {
-	    var fsize = $(this),
-	    form,
-	    maxFileSize;
+	    var fsize = $(this);
+	    var form;
+	    var maxFileSize;
 	
 	    // read fsize, assume MB
 	    maxFileSize = parseInt(fsize.text().replace(/\D+/g, ''), 10) * 1024 * 1024;
@@ -1575,8 +1509,8 @@
 	      displayFileSize(input);
 	
 	      // recalculate file sizes
-	      var total = 0,
-	      valid;
+	      var total = 0;
+	      var valid;
 	      $(':file', this.form).each(function (index, element) {
 	        var size = element.files.length ? element.files[0].size : 0;
 	        total += size; // total = total + size;
@@ -1602,20 +1536,17 @@
 	      each(function (index, element) {
 	        element.setCustomValidity('');
 	      });
-	
 	    });
-	
 	  });
-	
 	})(jQuery);
 	(function ($) {
 	  'use strict';
 	
 	  var xorConstraintSubmitHandler = function xorConstraintSubmitHandler(event) {
 	    // has one of the required fields been answered?
-	    var xorFields = event.data[0],
-	    validationMessage = event.data[1],
-	    xorConstraintMet = xorFields.filter(function () {
+	    var xorFields = event.data[0];
+	    var validationMessage = event.data[1];
+	    var xorConstraintMet = xorFields.filter(function () {
 	      return this.value.length > 1;
 	    }).length > 0;
 	
@@ -1625,9 +1556,9 @@
 	      xorConstraintMet ? '' : validationMessage);
 	
 	    });
-	  },
+	  };
 	
-	  xorConstraintChangeHandler = function xorConstraintChangeHandler(event, validationUiRefreshOnly) {
+	  var xorConstraintChangeHandler = function xorConstraintChangeHandler(event, validationUiRefreshOnly) {
 	    if (validationUiRefreshOnly === true) {
 	      // pass through to other change handlers
 	      return;
@@ -1645,7 +1576,6 @@
 	  };
 	
 	
-	
 	  // plugin
 	  $.fn.initXorConstraint = function (validationMessage) {
 	    // custom validation for XOR options
@@ -1657,10 +1587,8 @@
 	(function ($) {
 	  'use strict';
 	
-	
 	  /* detect required field markers for IE6 */
 	  $('abbr[title*="required"]').addClass('required');
-	
 	
 	  // show/hide entire 'question' when fields become irrelevant
 	  $('.questions > li').not('.section').
@@ -1674,7 +1602,6 @@
 	  });
 	
 	
-	
 	  // click the table cell to click on a matrix option
 	  $('.matrix').delegate('td', 'click', function (evt) {
 	    $(evt.target).
@@ -1683,9 +1610,7 @@
 	    trigger('change');
 	
 	  });
-	
 	})(jQuery);
-	
 	
 	/**
 	             * This file initialises forms
@@ -1708,12 +1633,11 @@
 	(function ($) {
 	  'use strict';
 	
-	
 	  // extend jquery to 'toggle required'
 	  $.fn.toggleRequired = function (required) {
 	    return this.each(function () {
-	      var controls = $(this.form.elements[this.name]),
-	      question = $(this).closest('.questions > li');
+	      var controls = $(this.form.elements[this.name]);
+	      var question = $(this).closest('.questions > li');
 	
 	      if (required) {
 	        if (question.find('abbr[title="(required)"]').length === 0) {
@@ -1739,12 +1663,11 @@
 	qg.date = function () {
 	  'use strict';
 	
-	
-	  var datePackage = {},
+	  var datePackage = {};
 	
 	  // Public holiday dates for 2010-2014 (viewed 2012-09-28)
 	  // http://www.justice.qld.gov.au/fair-and-safe-work/industrial-relations/public-holidays/dates
-	  qldHolidays = {
+	  var qldHolidays = {
 	    // 2010
 	    '2010-01-01': 'New Year’s Day',
 	    '2010-01-26': 'Australia Day',
@@ -1863,13 +1786,12 @@
 	
 	
 	
-	
 	  // is a public holiday
 	  datePackage.isPublicHoliday = function (date) {
-	    var d = date.getDate(),
-	    m = date.getMonth() + 1,
-	    y = String(date.getFullYear()),
-	    dateString = y + (m < 10 ? '-0' : '-') + m + (d < 10 ? '-0' : '-') + d;
+	    var d = date.getDate();
+	    var m = date.getMonth() + 1;
+	    var y = String(date.getFullYear());
+	    var dateString = y + (m < 10 ? '-0' : '-') + m + (d < 10 ? '-0' : '-') + d;
 	
 	
 	    // return true, date is a public holiday
@@ -1885,15 +1807,14 @@
 	(function ($) {
 	  'use strict';
 	
-	
 	  // find any textareas with a word count
 	  $('.hint').filter(function () {
 	    return (/Maximum:\s+\d+\s+words/.test($(this).text()));
 	  }).each(function () {
-	    var hint = $(this),
-	    max = parseInt(hint.text().replace(/Maximum:\s+(\d+)\s+words/, '$1'), 10),
-	    textField = hint.closest('label').nextAll('textarea'),
-	    counter;
+	    var hint = $(this);
+	    var max = parseInt(hint.text().replace(/Maximum:\s+(\d+)\s+words/, '$1'), 10);
+	    var textField = hint.closest('label').nextAll('textarea');
+	    var counter;
 	
 	    // add counter
 	    counter = $('<span/>').generateId('word-count');
@@ -2534,6 +2455,7 @@
 	(function ($) {
 	  var accordion = '.qg-accordion';
 	  if ($(accordion).length > 0) {
+	    var tabindex = 1;
 	    var accordionControls = 'input[name=control]';
 	    var linkedpanel = window.location.hash && $('input[aria-controls=' + window.location.hash.substring(1) + ']');
 	
@@ -2557,6 +2479,15 @@
 	    if (linkedpanel.length > 0) {
 	      linkedpanel.prop('checked', true);
 	    }
+	
+	    // inserting tab index dynamically
+	    $('.acc-heading').each(function () {
+	      if (this.type !== 'hidden') {
+	        var $input = $(this);
+	        $input.attr('tabindex', tabindex);
+	        tabindex++;
+	      }
+	    });
 	  }
 	})(jQuery);
 

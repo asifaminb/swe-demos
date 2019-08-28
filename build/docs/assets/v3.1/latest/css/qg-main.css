@@ -10452,6 +10452,9 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   position: relative;
   padding: 0.4rem 0.7rem; }
 
+.qg-accordion article .acc-heading:hover {
+  text-decoration: underline; }
+
 .qg-accordion article .acc-heading label {
   position: relative;
   display: block;
@@ -10514,6 +10517,9 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
 .qg-accordion input[name=tabs][type=checkbox]:checked + .acc-heading label i, .qg-accordion input[name=control][type=checkbox]:checked + .acc-heading label i {
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg); }
+
+.qg-accordion input[name=tabs][type=checkbox]:checked + .acc-heading, .qg-accordion input[name=control][type=checkbox]:checked + .acc-heading {
+  text-decoration: underline; }
 
 .qg-accordion input[name=tabs].expand:checked ~ article .collapsing-section, .qg-accordion input[name=control].expand:checked ~ article .collapsing-section {
   max-height: inherit;
