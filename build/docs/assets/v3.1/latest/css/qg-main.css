@@ -10452,7 +10452,10 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   position: relative;
   padding: 0.4rem 0.7rem; }
 
-.qg-accordion article .acc-heading:hover {
+.qg-accordion article .acc-heading .title {
+  display: block; }
+
+.qg-accordion article .acc-heading .title:hover {
   text-decoration: underline; }
 
 .qg-accordion article .acc-heading label {
@@ -10518,7 +10521,7 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   transform: rotate(-135deg);
   -webkit-transform: rotate(-135deg); }
 
-.qg-accordion input[name=tabs][type=checkbox]:checked + .acc-heading, .qg-accordion input[name=control][type=checkbox]:checked + .acc-heading {
+.qg-accordion input[name=tabs][type=checkbox]:checked + .acc-heading .title, .qg-accordion input[name=control][type=checkbox]:checked + .acc-heading .title {
   text-decoration: underline; }
 
 .qg-accordion input[name=tabs].expand:checked ~ article .collapsing-section, .qg-accordion input[name=control].expand:checked ~ article .collapsing-section {

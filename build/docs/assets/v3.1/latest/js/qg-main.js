@@ -2560,7 +2560,7 @@
 	    }
 	
 	    // inserting tab index dynamically
-	    $('.acc-heading').each(function () {
+	    $('.qg-accordion article').each(function () {
 	      if (this.type !== 'hidden') {
 	        var $input = $(this);
 	        $input.attr('tabindex', tabindex);
