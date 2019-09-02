@@ -2568,10 +2568,12 @@
 	      }
 	    });
 	
-	    // inserting tab index dynamically
-	    $('article').hover(function () {
-	      $('.title').removeClass('ht');
+	    // highlight title on hover
+	    $('.qg-accordion article').hover(function () {
+	      $(accordion).find('.title').removeClass('ht');
 	      $(this).find('.title').addClass('ht');
+	    }, function () {
+	      $(accordion).find('.title').removeClass('ht');
 	    });
 	  }
 	})(jQuery);
