@@ -10564,7 +10564,7 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
 .pagination .page-link .fa-angle-right {
   padding-left: 9px; }
 
-.pagination .page-link:focus, .pagination .page-link:hover, .pagination .page-link:visited, .pagination .page-link:link, .pagination .page-link:active {
+.pagination .page-link:focus, .pagination .page-link:visited, .pagination .page-link:link, .pagination .page-link:active {
   color: #13578b !important; }
 
 .pagination .page-item.disabled .page-link {
@@ -10832,6 +10832,10 @@ a[data-toggle=collapse].qg-icon:after {
 .qg-cards .qg-card .content .details ul li a {
   color: #fff;
   text-decoration: underline; }
+
+.qg-cards .qg-card .content .details ul li a:hover, .qg-cards .qg-card .content .details ul li a:active, .qg-cards .qg-card .content .details ul li a:focus {
+  color: #fff !important;
+  text-decoration: none !important; }
 
 .qg-cards .qg-card .content .details a.btn, .qg-cards .qg-card .content .details a.qg-btn, .qg-cards .qg-card .content .details a.btn:visited, .qg-cards .qg-card .content .details a.qg-btn:visited, .qg-cards .qg-card .content .details a.btn:focus, .qg-cards .qg-card .content .details a.qg-btn:focus {
   color: inherit !important;
