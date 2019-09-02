@@ -2560,12 +2560,18 @@
 	    }
 	
 	    // inserting tab index dynamically
-	    $('.acc-heading').each(function () {
+	    $('.qg-accordion .acc-heading').each(function () {
 	      if (this.type !== 'hidden') {
 	        var $input = $(this);
 	        $input.attr('tabindex', tabindex);
 	        tabindex++;
 	      }
+	    });
+	
+	    // inserting tab index dynamically
+	    $('article').hover(function () {
+	      $('.title').removeClass('ht');
+	      $(this).find('.title').addClass('ht');
 	    });
 	  }
 	})(jQuery);
