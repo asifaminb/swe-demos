@@ -10452,7 +10452,7 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
   border-bottom: 1px solid #f6f6f6; }
 
 .qg-accordion article .acc-heading {
-  margin: 3px;
+  margin: 5px;
   position: relative;
   padding: 0.4rem 0.7rem; }
 
@@ -10564,8 +10564,11 @@ body:not([data-accessibility=false]):not([data-access-new-window=false]) #qg-con
 .pagination .page-link .fa-angle-right {
   padding-left: 9px; }
 
+.pagination .page-link:focus, .pagination .page-link:hover, .pagination .page-link:visited, .pagination .page-link:link, .pagination .page-link:active {
+  color: #13578b !important; }
+
 .pagination .page-item.disabled .page-link {
-  color: #6c757d;
+  color: #6c757d !important;
   pointer-events: none;
   cursor: auto;
   background-color: #fff;
