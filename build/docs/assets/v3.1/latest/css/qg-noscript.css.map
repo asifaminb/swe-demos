@@ -1,1 +1,0 @@
-{"version":3,"sources":["qg-noscript.css"],"names":[],"mappings":"AAAA;EACE,0BAAyB,EAAG","file":"qg-noscript.css","sourcesContent":[".collapse {\n  display: block !important; }\n"],"sourceRoot":"src"}
