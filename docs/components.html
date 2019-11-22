@@ -109,7 +109,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </ul>
 
 
-    <form action="https://www.qld.gov.au/search" id="qg-search-form" role="search" class="collapse col-xs-12 col-md-3">
+    <form action="https://www.qld.gov.au/search" id="qg-search-form" role="search" class="collapse col-xs-12 col-md-3 qg-web-autocomplete">
     <div class="input-group">
         <label for="qg-search-query" class="qg-visually-hidden">Search Queensland Government</label>
         <input type="text" name="query" id="qg-search-query" class="form-control" placeholder="Search website" tabindex="0" aria-required="true" aria-expanded="false"/>
@@ -123,6 +123,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <input type="hidden" name="collection" value="qld-gov">
     <input type="hidden" name="profile" value="qld">
 </form>
+
 
 
     <!-- global alert -->
@@ -182,88 +183,88 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         <!-- ################################## -->
         <h2 id="accordion" class="category">Accordion</h2>
-          <section>
-              <p>Displays collapsible content panels for presenting information in a limited amount of space.</p>
-              <p>Click headers to expand/collapse content that is categorised into logical sections.</p>
-              <section class="qg-accordion qg-dark-accordion" aria-label="Accordion Label">
-                  <div class="qg-acc-controls">
-                      <label for="expand" class="controls">Expand all</label>
-                      <span class="controls">&#124;</span>
-                      <label for="collapse" class="controls">Collapse all</label>
-                  </div>
-                  <article>
-                      <input id="without-icon" type="checkbox" name="tabs" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
-                      <h3 class="acc-heading"><label for="without-icon"><span class="title">Without icon</span><span class="arrow"> <i></i></span></label></h3>
-                      <div class="collapsing-section"  aria-hidden="true" id="id-panel-content-1">
-                          <p> Content related to header. </p>
-                          <ul>
-                              <li>If dot points are available</li>
-                              <li>Can go here</li>
-                          </ul>
-                          <p>Or provide any semantic html structure</p>
-                      </div>
-                  </article>
-                  <article>
-                      <input id="with-icon" type="checkbox" name="tabs" aria-controls="id-panel-content-2" aria-expanded="false" role="checkbox">
-                      <h3 class="acc-heading"><img src="https://placeimg.com/20/20/nature" alt=""><label for="with-icon"><span class="title">With icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
-                      <div class="collapsing-section" aria-hidden="true" id="id-panel-content-2">
-                          <h4>Heading</h4>
-                          <p> Content related to header. </p>
-                          <ul>
-                              <li>If dot points are available</li>
-                              <li>Can go here</li>
-                          </ul>
-                          <p>Or provide any semantic html structure</p>
-                          <button type="button" class="qg-btn btn-default">Default</button>
-                          <button type="button" class="qg-btn btn-primary">Primary</button>
-                          <button type="button" class="qg-btn btn-secondary">Primary Alt</button>
-                          <button type="button" class="qg-btn btn-link">Link</button>
-                      </div>
-                  </article>
-              </section>
+        <section>
+          <p>Displays collapsible content panels for presenting information in a limited amount of space.</p>
+          <p>Click headers to expand/collapse content that is categorised into logical sections.</p>
+          <section class="qg-accordion qg-dark-accordion" aria-label="Accordion Label">
+            <div class="qg-acc-controls">
+              <a href="#" class="controls expand">Expand all</a>
+              <span class="controls">&#124;</span>
+              <a href="#" class="controls collapse">Collapse all</a>
+            </div>
+            <article>
+              <input id="without-icon" type="checkbox" name="tabs" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
+              <h3 class="acc-heading"><label for="without-icon"><span class="title">Without icon</span><span class="arrow"> <i></i></span></label></h3>
+              <div class="collapsing-section"  aria-hidden="true" id="id-panel-content-1">
+                <p> Content related to header. </p>
+                <ul>
+                  <li>If dot points are available</li>
+                  <li>Can go here</li>
+                </ul>
+                <p>Or provide any semantic html structure</p>
+              </div>
+            </article>
+            <article>
+              <input id="with-icon" type="checkbox" name="tabs" aria-controls="id-panel-content-2" aria-expanded="false" role="checkbox">
+              <h3 class="acc-heading"><img src="https://placeimg.com/20/20/nature" alt=""><label for="with-icon"><span class="title">With icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
+              <div class="collapsing-section" aria-hidden="true" id="id-panel-content-2">
+                <h4>Heading</h4>
+                <p> Content related to header. </p>
+                <ul>
+                  <li>If dot points are available</li>
+                  <li>Can go here</li>
+                </ul>
+                <p>Or provide any semantic html structure</p>
+                  <button type="button" class="qg-btn btn-default">Default</button>
+                  <button type="button" class="qg-btn btn-primary">Primary</button>
+                  <button type="button" class="qg-btn btn-secondary">Primary Alt</button>
+                  <button type="button" class="qg-btn btn-link">Link</button>
+              </div>
+            </article>
+          </section>
 
-              <section class="qg-accordion mt-5" aria-label="Accordion Label">
-                  <div class="qg-acc-controls">
-                      <label for="expand" class="controls">Expand all</label>
-                      <span class="controls">&#124;</span>
-                      <label for="collapse" class="controls">Collapse all</label>
-                  </div>
-                  <article>
-                      <input id="without-icon-1" type="checkbox" name="tabs" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
-                      <h3 class="acc-heading"><label for="without-icon-1"><span class="title">Without icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
-                      <div class="collapsing-section"  aria-hidden="true" id="id-panel-content-1">
-                          <p> Content related to header. </p>
-                          <ul>
-                              <li>If dot points are available</li>
-                              <li>Can go here</li>
-                          </ul>
-                          <p>Or provide any semantic html structure</p>
-                      </div>
-                  </article>
-                  <article>
-                      <input id="with-icon-1" type="checkbox" name="tabs" aria-controls="id-panel-content-2" aria-expanded="false" role="checkbox">
-                      <h3 class="acc-heading"><img src="https://placeimg.com/20/20/nature" alt=""><label for="with-icon-1"><span class="title">With icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
-                      <div class="collapsing-section" aria-hidden="true" id="id-panel-content-2">
-                          <h4>Heading</h4>
-                          <p> Content related to header. </p>
-                          <ul>
-                              <li>If dot points are available</li>
-                              <li>Can go here</li>
-                          </ul>
-                          <p>Or provide any semantic html structure</p>
-                          <button type="button" class="qg-btn btn-default">Default</button>
-                          <button type="button" class="qg-btn btn-primary">Primary</button>
-                          <button type="button" class="qg-btn btn-secondary">Primary Alt</button>
-                          <button type="button" class="qg-btn btn-link">Link</button>
-                      </div>
-                  </article>
-              </section>
+          <section class="qg-accordion mt-5" aria-label="Accordion Label">
+            <div class="qg-acc-controls">
+              <a href="#" class="controls expand">Expand all</a>
+              <span class="controls">&#124;</span>
+              <a href="#" class="controls collapse">Collapse all</a>
+            </div>
+            <article>
+              <input id="without-icon-1" type="checkbox" name="tabs" aria-controls="id-panel-content-1" aria-expanded="false" role="checkbox">
+              <h3 class="acc-heading"><label for="without-icon-1"><span class="title">Without icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
+              <div class="collapsing-section"  aria-hidden="true" id="id-panel-content-1">
+                <p> Content related to header. </p>
+                <ul>
+                  <li>If dot points are available</li>
+                  <li>Can go here</li>
+                </ul>
+                <p>Or provide any semantic html structure</p>
+              </div>
+            </article>
+            <article>
+              <input id="with-icon-1" type="checkbox" name="tabs" aria-controls="id-panel-content-2" aria-expanded="false" role="checkbox">
+              <h3 class="acc-heading"><img src="https://placeimg.com/20/20/nature" alt=""><label for="with-icon-1"><span class="title">With icon</span> <span class="subtitle">Subtitle can go here (optional)</span><span class="arrow"> <i></i></span></label></h3>
+              <div class="collapsing-section" aria-hidden="true" id="id-panel-content-2">
+                <h4>Heading</h4>
+                <p> Content related to header. </p>
+                <ul>
+                  <li>If dot points are available</li>
+                  <li>Can go here</li>
+                </ul>
+                <p>Or provide any semantic html structure</p>
+                <button type="button" class="qg-btn btn-default">Default</button>
+                <button type="button" class="qg-btn btn-primary">Primary</button>
+                <button type="button" class="qg-btn btn-secondary">Primary Alt</button>
+                <button type="button" class="qg-btn btn-link">Link</button>
+              </div>
+            </article>
+          </section>
 
 
 
-              </br><p> HTML </p>
+          </br><p> HTML </p>
 
-              <pre><code class="language-markup">
+          <pre><code class="language-markup">
                 &lt;section class="qg-accordion qg-dark-accordion" aria-label="Accordion Label">
                     &lt;input type="radio" name="control" id="collapse" class="controls collapse" value="collapse" role="radio">
                     &lt;label for="collapse" class="controls">Collapse all&lt;/label>
@@ -285,14 +286,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     &lt;/article>
                 &lt;/section>
                                     </code></pre>
-              <p>Fontawesome icon can also be used instead of image. To use the default theme remove <span class="text-nowrap"><strong>qg-dark-accordion</strong></span> class.</p>
-              <p class="alert alert-info">Accordion without icons or images is advised best practice. </p>
-              <pre><code class="language-markdown">
+          <p>Fontawesome icon can also be used instead of image. To use the default theme remove <span class="text-nowrap"><strong>qg-dark-accordion</strong></span> class.</p>
+          <p class="alert alert-info">Accordion without icons or images is advised best practice. </p>
+          <pre><code class="language-markdown">
                 &lt;i class="fa fa-car" aria-hidden="true">&lt;/i>
                 or
                 &lt;img src="{{path of the image}}" alt="">
                                     </code></pre>
-          </section>
+        </section>
 
         <!-- ################################## -->
 
@@ -855,24 +856,23 @@ Publishers may use blockquotes to indicate the quotation of a section of text fr
 
         <div class="qg-image-gallery">
           <ul>
-            <li><a title="eligible-soft-drink-cans.jpg" data-fancybox="gallery-92732"
-                   data-caption="Eligible: Soft drink cans - between 150ml and 3L"
+            <li><a title="eligible-soft-drink-cans.jpg"
                    href="https://via.placeholder.com/450"><img alt="" src="https://via.placeholder.com/150"></a>
             </li>
-            <li><a title="eligible-soft-drink-bottles.jpg" data-fancybox="gallery-92732" data-caption=""
+            <li><a title="eligible-soft-drink-bottles.jpg"
                    href="https://via.placeholder.com/450"><img
               alt="" src="https://via.placeholder.com/150"></a>
             </li>
-            <li><a title="sports-energy-drinks.jpg" data-fancybox="gallery-92732" data-caption=""
+            <li><a title="sports-energy-drinks.jpg"
                    href="https://via.placeholder.com/450g"><img alt="" src="https://via.placeholder.com/150"></a>
             </li>
-            <li><a title="eligible-water-bottles.jpg" data-fancybox="gallery-92732" data-caption=""
+            <li><a title="eligible-water-bottles.jpg"
                    href="https://via.placeholder.com/450"><img alt="" src="https://via.placeholder.com/150"></a>
             </li>
-            <li><a title="eligible-beer-bottles.jpg" data-fancybox="gallery-92732" data-caption=""
+            <li><a title="eligible-beer-bottles.jpg"
                    href="https://via.placeholder.com/450"><img alt="" src="https://via.placeholder.com/150"></a>
             </li>
-            <li><a title="eligible-fruit-veg-juice-bottles.jpg" data-fancybox="gallery-92732" data-caption=""
+            <li><a title="eligible-fruit-veg-juice-bottles.jpg"
                    href="https://via.placeholder.com/450"><img alt="" src="https://via.placeholder.com/150"></a></li>
           </ul>
         </div>
@@ -972,76 +972,6 @@ Publishers may use blockquotes to indicate the quotation of a section of text fr
 
         <p>Forms are not implemented using the standard bootstrap layout. Instead, forms use the <a href="http://qld-gov-au.github.io/form-builder/form-builder.html">Queensland Government form builder</a>.</p>
         <p>For the user interface, see the <a href="https://github.com/qld-gov-au/pattern-library/blob/master/source/patterns-for-web-forms.md">SWE 2 pattern library for forms</a>.</p>
-
-        <p><strong>Radio button and Checkbox pattern</strong></p>
-        <pre><code class="language-markup">
-               &lt;figure&gt;
-                 &lt;img src="https://via.placeholder.com/300.png/ccc/ccc" alt="" /&gt;
-                 &lt;figcaption>
-                   Caption text here
-                 &lt;div class="figure-credits"&gt;Figure credits here&lt;/div&gt;
-                 &lt;/figcaption&gt;
-               &lt;/figure&gt;
-                </code></pre>
-
-        <form action="https://www.smartservice.qld.gov.au/services/submissions/email/yrcl/jp-resign" method="post" id="jpresign" class="form">
-          <ol class="questions">
-            <li class="section">
-            <fieldset>
-               <legend>
-                <span class="h3">Radio button theme</span>
-               </legend>
-               <ol class="questions ">
-                 <li>
-                  <fieldset>
-                    <legend>
-                     <span class="label">This Radio button custom theme can be implemented by adding 'rc-theme' class.</span>
-                    </legend>
-                    <ul class="choices compact rc-theme">
-                      <li>
-                        <input type="radio" name="current-test" value="Yes" required="required" class="r1" id="current-test-yes"><label for="current-test-yes">Yes</label>
-                      </li>
-                      <li>
-                        <input type="radio" name="current-test" value="No" required="required" class="r2" id="current-test-no"><label for="current-test-no">No</label>
-                      </li>
-                    </ul>
-                  </fieldset>
-                 </li>
-
-              </ol>
-            </fieldset>
-            </li>
-            <li class="section">
-              <fieldset><legend>
-                <span class="h3">Check Box theme</span>
-              </legend>
-                <ul class="choices rc-theme">
-                  <li>
-                    <fieldset><legend> <span class="label" style="visibility:hidden;height:0;">Acknowledgement</span></legend>
-                      <input id="conditions-of-use1" value="true" name="conditions-of-use1" type="checkbox"><label for="conditions-of-use1">Lorem ipsum dolor sit amet.</label>
-                    </fieldset></li>
-
-                  <li>
-                    <fieldset><legend> <span class="label" style="visibility:hidden;height:0;">Acknowledgement</span></legend>
-                      <input id="conditions-of-use2" value="true" name="conditions-of-use2" type="checkbox"><label for="conditions-of-use2">Lorem ipsum dolor sit amet.</label>
-                    </fieldset></li>
-
-                  <li>
-                    <fieldset><legend> <span class="label" style="visibility:hidden;height:0;">Acknowledgement</span></legend>
-                      <input id="conditions-of-use3" value="true" name="conditions-of-use3" type="checkbox"><label for="conditions-of-use3">Lorem ipsum dolor sit amet.</label>
-                    </fieldset></li>
-
-                  <li>
-                    <fieldset><legend> <span class="label" style="visibility:hidden;height:0;">Acknowledgement</span></legend>
-                      <input id="conditions-of-use4" value="true" name="conditions-of-use4" type="checkbox"><label for="conditions-of-use4">Lorem ipsum dolor sit amet.</label>
-                    </fieldset></li>
-
-                </ul></fieldset></li>
-
-
-          </ol>
-        </form>
-
 
         <!-- ################################## -->
 
@@ -1798,6 +1728,7 @@ Publishers may use blockquotes to indicate the quotation of a section of text fr
     <li><a href="styles.html">CSS Styles</a></li>
     <li><a href="components.html">Components</a></li>
     <li><a href="qg-utilities.html">Utilities</a></li>
+    <li><a href="forms.html">Forms</a></li>
   </ul>
 </nav>
 
@@ -1898,6 +1829,13 @@ Publishers may use blockquotes to indicate the quotation of a section of text fr
                       </div>
                     </li>
 
+                    <li id="feedback-captcha-container2" class="col-md-12">
+                        <div class="form-group">
+                            <label for="feedback-captchaCatch">Please leave this blank (this helps us identify automatic spam)</label>
+                            <input class="form-control" type="text" name="captchaCatch" id="feedback-captchaCatch" value="" />
+                        </div>
+                    </li>
+
                     <li id="feedback-captcha-container" class="col-md-12">
                       <div class="form-group">
                           <label for="feedback-captcha">Please leave this blank (this helps us identify automatic spam)</label>
@@ -1915,7 +1853,11 @@ Publishers may use blockquotes to indicate the quotation of a section of text fr
                             </li>
 
                         </ul>
-
+                        <p class="captchaPrivacyTerms">
+                                This site is protected by reCAPTCHA and the Google
+                                <a href="https://policies.google.com/privacy">Privacy Policy</a> and
+                                <a href="https://policies.google.com/terms">Terms of Service</a> apply.
+                        </p>
                     </li>
 
                 </ol>

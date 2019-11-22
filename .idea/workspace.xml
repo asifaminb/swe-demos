@@ -1,9 +1,169 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dadf6832-547b-414f-a9b0-f44e66922002" name="Default Changelist" comment="">
+    <list default="true" id="dadf6832-547b-414f-a9b0-f44e66922002" name="Default Changelist" comment="demos">
+      <change afterPath="$PROJECT_DIR$/docs/forms.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scss/components/tables/_tables.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/v3.1/latest/css/qg-main.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/v3.1/latest/css/qg-main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/v3.1/latest/js/qg-main.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/assets/v3.1/latest/js/qg-main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/components.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/components.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/foundations.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/foundations.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pagemodels.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/aggregation-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pagemodels/aggregation-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/application-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pagemodels/application-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/content-page-no-asides.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pagemodels/content-page-no-asides.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/content-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pagemodels/content-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/index-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pagemodels/index-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/sample/accordions/accordion-example-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/sample/accordions/accordion-example-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/sample/buttons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/sample/cut-in-images.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/captcha-footer-old.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/sample/document-types.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/sample/forms/filter-aside.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/sample/forms/pattern-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/sample/forms/radio-button-pattern.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/pagemodels/topic-index-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pagemodels/topic-index-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/qg-utilities.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/qg-utilities.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/styles.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/styles.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/_misc.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/_misc.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/accordion/_accordion.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/accordion/_accordion.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/gallery/_qg-gallery.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/gallery/_qg-gallery.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/components/search-widget/_search-widget.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/components/search-widget/_search-widget.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/layout/banners/_qg-banner-blurb.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/layout/banners/_qg-banner-blurb.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/layout/content/_options.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/layout/content/_options.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/layout/header/_site-search.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/layout/header/_site-search.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/legacy/forms/_forms.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/legacy/forms/_forms.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/qg-main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/qg-main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/css/qg-main.css" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/css/qg-main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/css/qg-noscript.css" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/css/qg-noscript.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/js/qg-main.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/js/qg-main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/all-ext-min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/all-ext-min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/autocomplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/autocomplete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/bootstrap-ie7.css" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/bootstrap-ie7.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/butterfly-ie.css" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/butterfly-ie.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/butterfly.css" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/butterfly.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/jquery.butterfly.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/jquery.butterfly.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/jquery.history.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/jquery.history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/jquery.pxToEm.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/jquery.pxToEm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/jquery.resize-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/butterfly/jquery.resize-events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/generate-id.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/generate-id.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery.browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery.browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery.history.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery.history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery.jsonp.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery.jsonp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery.resize-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/jquery.resize-events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/markdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/static.qgov.net.au/assets/v3.1/latest/lib/ext/markdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/aggregation-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn-ssi/aggregation-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/application-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn-ssi/application-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/assets/includes-cdn/content/options.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn-ssi/assets/includes-cdn/content/options.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/assets/includes-cdn/header/coat-of-arms.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn-ssi/assets/includes-cdn/header/coat-of-arms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/assets/includes-cdn/header/site-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn-ssi/assets/includes-cdn/header/site-search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/assets/includes-cdn/section-nav/docs-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn-ssi/assets/includes-cdn/section-nav/docs-nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/content-page-no-asides.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn-ssi/content-page-no-asides.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/content-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn-ssi/content-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/index-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn-ssi/index-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/sample/accordions/accordion-example-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/sample/accordions/accordion-example-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/sample/buttons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/sample/cut-in-images.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/sample/document-types.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/sample/forms/filter-aside.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/sample/forms/pattern-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/sample/forms/radio-button-pattern.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn-ssi/topic-index-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn-ssi/topic-index-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/aggregation-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn/aggregation-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/application-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn/application-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/content-page-no-asides.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn/content-page-no-asides.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/content-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn/content-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/index-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn/index-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/sample/accordions/accordion-example-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/sample/accordions/accordion-example-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/sample/buttons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/sample/cut-in-images.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/captcha-footer-only.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/sample/document-types.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/sample/forms/filter-aside.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/sample/forms/pattern-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/sample/forms/radio-button-pattern.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-cdn/topic-index-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-cdn/topic-index-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/aggregation-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/aggregation-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/application-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/application-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/includes-local/content/options.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/includes-local/content/options.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/includes-local/header/site-search.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/includes-local/header/site-search.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/includes-local/section-nav/docs-nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/includes-local/section-nav/docs-nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/css/qg-main.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/css/qg-main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/css/qg-noscript.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/css/qg-noscript.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/js/qg-main.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/js/qg-main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/all-ext-min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/all-ext-min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/autocomplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/autocomplete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/bootstrap-ie7.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/bootstrap-ie7.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/butterfly-ie.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/butterfly-ie.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/butterfly.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/butterfly.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/jquery.butterfly.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/jquery.butterfly.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/jquery.history.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/jquery.history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/jquery.pxToEm.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/jquery.pxToEm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/jquery.resize-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/butterfly/jquery.resize-events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/generate-id.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/generate-id.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/jquery.browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/jquery.browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/jquery.history.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/jquery.history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/jquery.jsonp.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/jquery.jsonp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/jquery.resize-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/jquery.resize-events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/markdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/assets/v3.1/latest/lib/ext/markdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/content-page-no-asides.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/content-page-no-asides.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/content-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/content-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/index-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/index-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/sample/accordions/accordion-example-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/sample/accordions/accordion-example-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/sample/buttons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/sample/cut-in-images.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/sample/document-types.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/sample/forms/filter-aside.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/sample/forms/pattern-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/sample/forms/radio-button-pattern.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local-ssi/topic-index-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local-ssi/topic-index-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/aggregation-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/aggregation-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/application-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/application-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/css/qg-main.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/css/qg-main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/css/qg-noscript.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/css/qg-noscript.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/js/qg-main.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/js/qg-main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/all-ext-min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/all-ext-min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/autocomplete.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/autocomplete.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/bootstrap-ie7.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/bootstrap-ie7.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/butterfly-ie.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/butterfly-ie.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/butterfly.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/butterfly.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/jquery.butterfly.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/jquery.butterfly.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/jquery.history.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/jquery.history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/jquery.pxToEm.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/jquery.pxToEm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/jquery.resize-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/butterfly/jquery.resize-events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/fancybox/jquery.fancybox.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/generate-id.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/generate-id.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/jquery.browser.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/jquery.browser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/jquery.history.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/jquery.history.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/jquery.jsonp.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/jquery.jsonp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/jquery.resize-events.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/jquery.resize-events.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/markdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/assets/v3.1/latest/lib/ext/markdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/content-page-no-asides.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/content-page-no-asides.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/content-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/content-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/index-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/index-page.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/sample/accordions/accordion-example-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/sample/accordions/accordion-example-2.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/sample/buttons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/sample/cut-in-images.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/captcha.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/sample/document-types.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/sample/forms/filter-aside.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/sample/forms/pattern-1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/sample/forms/radio-button-pattern.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/template-local/topic-index-page.html" beforeDir="false" afterPath="$PROJECT_DIR$/template-local/topic-index-page.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,22 +211,25 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="RunManager">
+    <configuration name="sdfdf.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/swe-demos/sdfdf.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <item itemvalue="JavaScript Debug.sdfdf.html" />
       </list>
-    </option>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
-        <serviceView />
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -90,7 +253,9 @@
       <workItem from="1567654599332" duration="4096000" />
       <workItem from="1567984941249" duration="91000" />
       <workItem from="1570591463765" duration="2078000" />
-      <workItem from="1570688805270" duration="23000" />
+      <workItem from="1570688805270" duration="6836000" />
+      <workItem from="1572221474669" duration="48000" />
+      <workItem from="1574386318513" duration="167000" />
     </task>
     <task id="LOCAL-00001" summary="initialdxfgdfg">
       <created>1563772137693</created>
@@ -386,7 +551,14 @@
       <option name="project" value="LOCAL" />
       <updated>1570593002338</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="demos">
+      <created>1570688908268</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1570688908268</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,13 +582,22 @@
     <MESSAGE value="initial" />
     <MESSAGE value="initialsdfcsdf" />
     <MESSAGE value="added new" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new" />
+    <MESSAGE value="demos" />
+    <option name="LAST_COMMIT_MESSAGE" value="demos" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2475" y="338" width="806" height="528" key="Vcs.Push.Dialog.v2" timestamp="1570593003250">
+    <state x="2418" y="194" width="919" height="817" key="CommitChangelistDialog2" timestamp="1574386425658">
+      <screen x="1920" y="0" width="1920" height="1200" />
+    </state>
+    <state x="2418" y="194" width="919" height="817" key="CommitChangelistDialog2/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1574386425658" />
+    <state x="2475" y="338" width="806" height="528" key="Vcs.Push.Dialog.v2" timestamp="1570688912085">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
     <state x="555" y="356" width="806" height="528" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@0.25.1920.1175" timestamp="1570592502449" />
-    <state x="2475" y="338" width="806" height="528" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1570593003250" />
+    <state x="2475" y="338" width="806" height="528" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1570688912085" />
+    <state x="2497" y="312" width="766" height="578" key="find.popup" timestamp="1574386482473">
+      <screen x="1920" y="0" width="1920" height="1200" />
+    </state>
+    <state x="2497" y="312" width="766" height="578" key="find.popup/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1574386482473" />
   </component>
 </project>
