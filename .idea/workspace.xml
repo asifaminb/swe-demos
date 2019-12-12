@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dadf6832-547b-414f-a9b0-f44e66922002" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/twitter-share.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/twitter-share.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,14 +41,15 @@
     <property name="settings.editor.selected.configurable" value="IntelliLang.Configuration" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/build/template-pages/sample" />
-      <recent name="$PROJECT_DIR$/build/template-pages" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$/build/template-pages" />
       <recent name="$PROJECT_DIR$/build" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/build/template-pages/sample" />
+      <recent name="$PROJECT_DIR$/build/template-pages" />
     </key>
   </component>
   <component name="RunManager">
@@ -94,14 +96,10 @@
       <workItem from="1570591463765" duration="2078000" />
       <workItem from="1570688805270" duration="6836000" />
       <workItem from="1572221474669" duration="48000" />
-      <workItem from="1574386318513" duration="2264000" />
-    </task>
-    <task id="LOCAL-00001" summary="initialdxfgdfg">
-      <created>1563772137693</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1563772137693</updated>
+      <workItem from="1574386318513" duration="4349000" />
+      <workItem from="1574748036708" duration="615000" />
+      <workItem from="1574810214078" duration="599000" />
+      <workItem from="1576109223875" duration="403000" />
     </task>
     <task id="LOCAL-00002" summary="initial">
       <created>1563772381857</created>
@@ -432,7 +430,21 @@
       <option name="project" value="LOCAL" />
       <updated>1574387872655</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="demos">
+      <created>1574393530962</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1574393530962</updated>
+    </task>
+    <task id="LOCAL-00050" summary="demos">
+      <created>1576109320178</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1576109320178</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,15 +472,15 @@
     <option name="LAST_COMMIT_MESSAGE" value="demos" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="2418" y="194" width="919" height="817" key="CommitChangelistDialog2" timestamp="1574387872536">
+    <state x="2418" y="194" width="919" height="817" key="CommitChangelistDialog2" timestamp="1576109320059">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
-    <state x="2418" y="194" width="919" height="817" key="CommitChangelistDialog2/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1574387872536" />
-    <state x="2475" y="338" width="806" height="528" key="Vcs.Push.Dialog.v2" timestamp="1574387874019">
+    <state x="2418" y="194" width="919" height="817" key="CommitChangelistDialog2/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1576109320059" />
+    <state x="2475" y="338" width="806" height="528" key="Vcs.Push.Dialog.v2" timestamp="1576109321570">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
     <state x="555" y="356" width="806" height="528" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@0.25.1920.1175" timestamp="1570592502449" />
-    <state x="2475" y="338" width="806" height="528" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1574387874019" />
+    <state x="2475" y="338" width="806" height="528" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1576109321570" />
     <state x="2497" y="312" width="766" height="578" key="find.popup" timestamp="1574386482473">
       <screen x="1920" y="0" width="1920" height="1200" />
     </state>
