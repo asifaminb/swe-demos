@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="dadf6832-547b-414f-a9b0-f44e66922002" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pagemodels.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pagemodels.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/pagemodels/content-page-b.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/pagemodels/content-page-b.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/forms.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/forms.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,7 +29,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/pagemodels" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -42,16 +41,17 @@
     <property name="settings.editor.selected.configurable" value="IntelliLang.Configuration" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs" />
+      <recent name="$PROJECT_DIR$/docs/pagemodels" />
+      <recent name="$PROJECT_DIR$/build/template-pages/sample" />
+      <recent name="$PROJECT_DIR$/build/template-pages" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/docs" />
       <recent name="$PROJECT_DIR$/build/template-pages" />
       <recent name="$PROJECT_DIR$/build" />
       <recent name="$PROJECT_DIR$" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/docs/pagemodels" />
-      <recent name="$PROJECT_DIR$/build/template-pages/sample" />
-      <recent name="$PROJECT_DIR$/build/template-pages" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.share-b.html">
@@ -105,14 +105,8 @@
       <workItem from="1574386318513" duration="4349000" />
       <workItem from="1574748036708" duration="615000" />
       <workItem from="1574810214078" duration="599000" />
-      <workItem from="1576109223875" duration="6528000" />
-    </task>
-    <task id="LOCAL-00022" summary="initial">
-      <created>1566971603089</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1566971603089</updated>
+      <workItem from="1576109223875" duration="7563000" />
+      <workItem from="1576816732817" duration="725000" />
     </task>
     <task id="LOCAL-00023" summary="initial">
       <created>1566972026058</created>
@@ -450,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576115405303</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="demos">
+      <created>1576115762596</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1576115762596</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,15 +479,15 @@
     <option name="LAST_COMMIT_MESSAGE" value="demos" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="498" y="215" width="891" height="817" key="CommitChangelistDialog2" timestamp="1576115405226">
+    <state x="498" y="215" width="891" height="817" key="CommitChangelistDialog2" timestamp="1576115762537">
       <screen x="0" y="25" width="1920" height="1175" />
     </state>
-    <state x="498" y="215" width="891" height="817" key="CommitChangelistDialog2/0.25.1920.1175/1920.0.1920.1200@0.25.1920.1175" timestamp="1576115405226" />
+    <state x="498" y="215" width="891" height="817" key="CommitChangelistDialog2/0.25.1920.1175/1920.0.1920.1200@0.25.1920.1175" timestamp="1576115762537" />
     <state x="2418" y="194" width="919" height="817" key="CommitChangelistDialog2/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1576114723260" />
-    <state x="555" y="356" width="806" height="528" key="Vcs.Push.Dialog.v2" timestamp="1576115406594">
+    <state x="555" y="356" width="806" height="528" key="Vcs.Push.Dialog.v2" timestamp="1576115763709">
       <screen x="0" y="25" width="1920" height="1175" />
     </state>
-    <state x="555" y="356" width="806" height="528" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@0.25.1920.1175" timestamp="1576115406594" />
+    <state x="555" y="356" width="806" height="528" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@0.25.1920.1175" timestamp="1576115763709" />
     <state x="2475" y="338" width="806" height="528" key="Vcs.Push.Dialog.v2/0.25.1920.1175/1920.0.1920.1200@1920.0.1920.1200" timestamp="1576114724658" />
     <state x="577" y="317" width="766" height="566" key="find.popup" timestamp="1576115695067">
       <screen x="0" y="25" width="1920" height="1175" />
